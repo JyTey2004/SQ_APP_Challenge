@@ -2,6 +2,7 @@ Use YARN to install moodules in the APP
 
 
  IDEAS:
+
 	Bundle with Flight Ticket -> Up-Sell & Cross-Sell
 		- Selling Tickets and KRIS+ Items as a bundle
 		- UpSell Items that are Bundled with the Flight Ticket
@@ -21,6 +22,7 @@ Use YARN to install moodules in the APP
 
 
 SOLUTION: 
+
 	Build a new section in KRIS+ APP to facilate bundling of Tickets with KRIS+ Products
 		Bundling of Tickets will also mean that merchants have the option to work with KRIS+ without needing to worry about Local regulatory restrictions and limitations as whatever they are selling is part of the ticket as a FLYING SERVICE
 	
