@@ -61,6 +61,12 @@ export default function App() {
                   const routeName = getFocusedRouteNameFromRoute(route) ?? ""
                   if (routeName === 'Notifications') {
                     return { display: "none" }
+                  } else if (routeName === 'Login') {
+                    return { display: "none" }
+                  } else if (routeName === 'CountrySelection') {
+                    return { display: "none" }
+                  } else if (routeName === 'Search') {
+                    return { display: "none" }
                   }
                   return
                 })(route),
