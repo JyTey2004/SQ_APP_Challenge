@@ -1,3 +1,9 @@
+To Start the App:
+
+	1. cd to SQ_APP and enter expo start
+	2. Download Expo go on your mobile phone and scan the qr-code
+	3. Play with the App
+
 Use YARN to install moodules in the APP
 
 
