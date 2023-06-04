@@ -1,14 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { TailwindProvider } from 'tailwindcss-react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import HomeScreen from './screens/HomeScreen';
 import DiscoverScreen from './screens/DiscoverScreen';
 import AccountScreen from './screens/AccountScreen';
 import PaymentScreen from './screens/PaymentScreen';
 import WalletScreen from './screens/WalletScreen';
+import HomeStackScreen from './screens/HomeStackScreen';
+import NotificationsScreen from './screens/homeScreen/NotificationsScreen';
 
 export default function App() {
   const Tab = createBottomTabNavigator();
@@ -21,7 +22,7 @@ export default function App() {
             tabBarIcon: ({ focused, color, size }) => {
               let iconName;
   
-              if (route.name === 'Home') {
+              if (route.name === 'HomeStack') {
                 iconName = focused
                   ? 'home'
                   : 'home-outline';
@@ -35,8 +36,8 @@ export default function App() {
                 : 'compass-outline';
               } else if (route.name === 'Pay') {
                 iconName = focused 
-                ? 'scan'
-                : 'scan-outline';
+                ? 'qr-code'
+                : 'qr-code-outline';
               } else if (route.name === 'Wallet') {
                 iconName = focused 
                 ? 'wallet'
@@ -48,9 +49,23 @@ export default function App() {
             },
             tabBarActiveTintColor: 'blue',
             tabBarInactiveTintColor: 'gray',
+            headerShown: false,
           })}
+          
         >
-          <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen 
+              name="HomeStack" 
+              component={HomeStackScreen}
+              options={({ route }) => ({
+                tabBarStyle: ((route) => {
+                  const routeName = getFocusedRouteNameFromRoute(route) ?? ""
+                  if (routeName === 'Notifications') {
+                    return { display: "none" }
+                  }
+                  return
+                })(route),
+              })}
+          />
           <Tab.Screen name="Discover" component={DiscoverScreen} />
           <Tab.Screen name="Pay" component={PaymentScreen} />
           <Tab.Screen name="Wallet" component={WalletScreen} />
