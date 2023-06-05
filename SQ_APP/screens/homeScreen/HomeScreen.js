@@ -3,6 +3,7 @@ import React from 'react'
 import { Ionicons } from '@expo/vector-icons';
 import { Divider } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
+import MiniMenu from '../../components/MiniMenu';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -32,7 +33,7 @@ const HomeScreen = () => {
         <TouchableOpacity
           onPress={() => navigation.navigate('Notifications')}
         >
-          <Ionicons name="notifications-outline" size={33} color="white"/>
+          <Ionicons name="notifications-outline" size={28} color="white"/>
         </TouchableOpacity>
 
         {/* Country Selection VERY IMPORTANT -> key feartures here */}
@@ -58,6 +59,7 @@ const HomeScreen = () => {
             <Text className='text-sm text-gray-400'>Dining, retail, activities...</Text>
         </TouchableOpacity>
       </View>
+      <MiniMenu/>
     </SafeAreaView>
   )
 }
