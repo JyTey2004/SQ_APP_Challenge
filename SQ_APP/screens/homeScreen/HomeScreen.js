@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, Image, TouchableOpacity, TextInput } from 'react-native'
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons';
 import { Divider } from 'react-native-elements';
@@ -59,7 +59,23 @@ const HomeScreen = () => {
             <Text className='text-sm text-gray-400'>Dining, retail, activities...</Text>
         </TouchableOpacity>
       </View>
+
+      {/* Mini Menu */}
       <MiniMenu/>
+
+      {/* Flight Details Input*/}
+      <View className='mt-3 ml-3' >
+        <Text className='text-white text-lg font-bold'>Have a Flight?</Text>
+        <Text className='text-white text-m font-light'>Check out the amazing rewards!</Text>
+
+        <View className='flex-1 mt-2 mr-3'>
+          <TextInput className='bg-white'>
+            
+          </TextInput>
+        </View>
+      </View>
+      
+
     </SafeAreaView>
   )
 }
