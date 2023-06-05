@@ -4,7 +4,7 @@ To Start the App:
 	2. Download Expo go on your mobile phone and scan the qr-code
 	3. Play with the App
 
-Use YARN to install moodules in the APP
+Use YARN to install modules in the APP
 
 
  IDEAS:
