@@ -1,13 +1,25 @@
-import { View, Text, SafeAreaView, Image, TouchableOpacity, TextInput } from 'react-native'
-import React from 'react'
+import { View, Text, SafeAreaView, Image, TouchableOpacity, TextInput, FlatList } from 'react-native'
+import React,{ useState, useEffect} from 'react'
 import { Ionicons } from '@expo/vector-icons';
 import { Divider } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import MiniMenu from '../../components/MiniMenu';
+import {SearchBarDepart, SearchBarDestination} from '../../components/SearchBar';
+import List from '../../components/FlightSchedules';
+import axios from 'axios';
+
+const apiUrl = 'https://apigw.singaporeair.com/api/uat/v1/commercial/flightavailability/get';
+
 
 const HomeScreen = () => {
   const navigation = useNavigation();
-  
+
+  const [searchPhraseDepart, setSearchPhraseDepart] = useState("");
+  const [searchPhraseDestination, setSearchPhraseDestination] = useState("");
+
+  const [clicked, setClicked] = useState(false);
+
+
   return (
     <SafeAreaView className="bg-indigo-800">
 
@@ -65,13 +77,35 @@ const HomeScreen = () => {
 
       {/* Flight Details Input*/}
       <View className='mt-3 ml-3' >
-        <Text className='text-white text-lg font-bold'>Have a Flight?</Text>
-        <Text className='text-white text-m font-light'>Check out the amazing rewards!</Text>
+        <Text className='text-white text-lg font-bold'>Flying?</Text>
+        <Text className='text-white text-m font-light'>Check out Bundled deals now!</Text>
 
         <View className='flex-1 mt-2 mr-3'>
-          <TextInput className='bg-white'>
-            
-          </TextInput>
+          <View className='flex-row items-center space-x-3'>
+            <View className='flex-1'>
+              <SearchBarDepart
+              searchPhrase={searchPhraseDepart}
+              setSearchPhrase={setSearchPhraseDepart}
+              placeholderInfo="Depart From"
+              />
+            </View>
+            <Ionicons name="airplane-outline" color='white' size={30}/>
+            <View className='flex-1'>
+              <SearchBarDestination
+                searchPhrase={searchPhraseDestination}
+                setSearchPhrase={setSearchPhraseDestination}
+                placeholderInfo="Destination"
+                />
+            </View>
+              
+          </View>
+          <TouchableOpacity 
+            onPress={() => navigation.navigate('FlightDeals')}
+            className=' flex-1 bg-white mt-3 items-center flex-row justify-center space-x-1 rounded-lg'
+            >
+            <Text className='text-indigo-800 text-lg font-bold'>Search for Deals</Text>
+            <Ionicons name="paper-plane" color='#3730a3' size={20}/>
+          </TouchableOpacity>
         </View>
       </View>
       

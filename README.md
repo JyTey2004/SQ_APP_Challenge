@@ -43,4 +43,5 @@ SOLUTION:
 			-> Up-Selling
 		5. Items must be offer together with tickets as a service NOT product 
 			-> to bypass licence and all that bs
-		
+		6. Recommend user based on profile
+			-> Customer has more than x number of KrisMiles
