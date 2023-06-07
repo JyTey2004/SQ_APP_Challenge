@@ -5,8 +5,7 @@ import { Divider } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import MiniMenu from '../../components/MiniMenu';
 import {SearchBarDepart, SearchBarDestination} from '../../components/SearchBar';
-import List from '../../components/FlightSchedules';
-import axios from 'axios';
+import FlightSearchButton from '../../components/api/FlightSearch';
 
 const apiUrl = 'https://apigw.singaporeair.com/api/uat/v1/commercial/flightavailability/get';
 
@@ -16,9 +15,6 @@ const HomeScreen = () => {
 
   const [searchPhraseDepart, setSearchPhraseDepart] = useState("");
   const [searchPhraseDestination, setSearchPhraseDestination] = useState("");
-
-  const [clicked, setClicked] = useState(false);
-
 
   return (
     <SafeAreaView className="bg-indigo-800">
@@ -99,13 +95,7 @@ const HomeScreen = () => {
             </View>
               
           </View>
-          <TouchableOpacity 
-            onPress={() => navigation.navigate('FlightDeals')}
-            className=' flex-1 bg-white mt-3 items-center flex-row justify-center space-x-1 rounded-lg'
-            >
-            <Text className='text-indigo-800 text-lg font-bold'>Search for Deals</Text>
-            <Ionicons name="paper-plane" color='#3730a3' size={20}/>
-          </TouchableOpacity>
+          <FlightSearchButton originAirportCode={searchPhraseDepart} destinationAirportCode={searchPhraseDestination}/>
         </View>
       </View>
       
