@@ -13,10 +13,10 @@ export default function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
       <HomeStack.Group>
-        <HomeStack.Screen name="Home" component={HomeScreen}  options={{headerShown: false}}/>    
+        <HomeStack.Screen name="HomeScreen" component={HomeScreen}  options={{headerShown: false}}/>    
         <HomeStack.Screen name="Notifications" component={NotificationsScreen}/>
         <HomeStack.Screen name='Search' component={SearchScreen}/>
-        <HomeStack.Screen name='FlightDeals' component={FlightDeals}/>
+        <HomeStack.Screen name='FlightDeals' component={FlightDeals} options={{headerShown: false}}/>
       </HomeStack.Group>
       <HomeStack.Group screenOptions={{ presentation: 'modal' }}>
         <HomeStack.Screen name="Login" component={LoginScreen} options={{ headerShown: false}}/>

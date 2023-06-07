@@ -22,7 +22,7 @@ export default function App() {
             tabBarIcon: ({ focused, color, size }) => {
               let iconName;
   
-              if (route.name === 'HomeStack') {
+              if (route.name === 'Home') {
                 iconName = focused
                   ? 'home'
                   : 'home-outline';
@@ -54,7 +54,7 @@ export default function App() {
           
         >
           <Tab.Screen 
-              name="HomeStack" 
+              name="Home" 
               component={HomeStackScreen}
               options={({ route }) => ({
                 tabBarStyle: ((route) => {
