@@ -1,6 +1,7 @@
-import { View, Text, FlatList, SafeAreaView } from 'react-native'
+import { View, Text, FlatList, SafeAreaView, ScrollView } from 'react-native'
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons';
+import BundledDeals from '../../components/BundledDeals';
 
 const FlightDeals = ({route}) => {
   const { responseData } = route.params;
@@ -8,23 +9,31 @@ const FlightDeals = ({route}) => {
   return (
     <SafeAreaView className='flex-1 bg-white'>
       <View className='flex-row items-center mt-3 ml-3 space-x-3'>
-        <Text className='text-2xl font-bold'>Flight Deals</Text>
+        <Text className='text-2xl font-bold'>Flight Details</Text>
         <Ionicons name="airplane-outline" color='black' size={30}/>
       </View>
-      <View className='flex-row-reverse mr-2 ml-2 mt-2'>
-        {responseData?.response?.airports.map((item, index) => (
-          <View 
-            key={index}
-            className='rounded-lg bg-indigo-800 p-3 flex-1 m-1'
+      <View>
+        <ScrollView 
+          className='flex-row mr-2 ml-2 mt-2'
+          horizontal
+          showsHorizontalScrollIndicator={false}
           >
-              <Text className='text-white text-xl font-bold'>{item.airportCode}</Text>
-              <Text className='text-white text-sm'>Airport Name: {item.airportName}</Text>
-              <Text className='text-white text-sm'>Country: {item.countryName}</Text>
-          </View>
-        ))}
+          {responseData?.response?.airports.map((item, index) => (
+            <View 
+              key={index}
+              className='rounded-lg bg-indigo-800 p-3 flex-1 m-1'
+            >
+                <Text className='text-white text-xl font-bold'>{item.airportCode}</Text>
+                <Text className='text-white text-sm'>Airport Name: {item.airportName}</Text>
+                <Text className='text-white text-sm'>Country: {item.countryName}</Text>
+            </View>
+          ))}
+        </ScrollView>
       </View>
+      
       <View className='ml-3 mt-3 mr-3'>
           <Text className='text-xl font-bold'>Bundled Deals!</Text>
+          <BundledDeals/>
       </View>
     </SafeAreaView>
   );
