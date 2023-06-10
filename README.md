@@ -1,15 +1,15 @@
 
 ## To Start the App:
 
-1. cd to SQ_APP/frontend and run `yarn install`
+1. cd to frontend and run `yarn install`
 2. Run `yarn start` to start expo
 3. Download Expo go on your mobile phone and scan the qr-code
 4. Play with the App
 
 ## Backend
-1. cd to SQ_APP/backend
+1. cd to backend
 1. Rename `.env.sample` file to `.env`.
-2. Enter the DB URL created as `MONGODB_URI` in `.env` file.
+2. Enter the DB URL as `MONGODB_URI` in `.env` file.
 3. Install packages using `yarn install`.
 4. Run server using `yarn start`.
 
