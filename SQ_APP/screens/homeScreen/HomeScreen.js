@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import MiniMenu from '../../components/MiniMenu';
 import {SearchBarDepart, SearchBarDestination} from '../../components/SearchBar';
 import FlightSearchButton from '../../components/api/FlightSearch';
+import FreeFlightsBundle from '../../components/FreeFlightsBundle';
 
 const apiUrl = 'https://apigw.singaporeair.com/api/uat/v1/commercial/flightavailability/get';
 
@@ -18,7 +19,6 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView className="bg-indigo-800">
-
       {/* Logo and Login/Signup */}
       <View className='flex-row space-x-4 mb-2 mt-1'>
         <Text className="text-white text-4xl font-bold ml-3 flex-1">KRIS+</Text>
@@ -98,7 +98,23 @@ const HomeScreen = () => {
           <FlightSearchButton originAirportCode={searchPhraseDepart} destinationAirportCode={searchPhraseDestination}/>
         </View>
       </View>
-      
+
+      {/* Free Flights */}
+      <View className='bg-white mt-3 pt-2'>
+        <View className='ml-3'>
+          <Text className=' text-xl font-bold'>Free Flights!</Text>
+          <TouchableOpacity 
+            className='flex-row items-center'
+            onPress={() => navigation.navigate('FreeFlights')}
+            >
+            <Text className='text-base font-medium'>Spend for a free flight!</Text>
+            <Ionicons name="chevron-forward-outline" size={20}/>
+          </TouchableOpacity>
+          <FreeFlightsBundle/>
+        </View>
+        
+        
+      </View>
 
     </SafeAreaView>
   )

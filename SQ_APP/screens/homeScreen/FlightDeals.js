@@ -1,4 +1,4 @@
-import { View, Text, FlatList, SafeAreaView, ScrollView } from 'react-native'
+import { View, Text, FlatList, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons';
 import BundledDeals from '../../components/BundledDeals';
@@ -33,6 +33,10 @@ const FlightDeals = ({route}) => {
       
       <View className='ml-3 mt-3 mr-3'>
           <Text className='text-xl font-bold'>Bundled Deals!</Text>
+          <TouchableOpacity className='flex-row items-center'>
+            <Text className="text-base">Bundle Items with your flight for more reward</Text>
+            <Ionicons name="chevron-forward-outline" size={20}/>
+          </TouchableOpacity>
           <BundledDeals/>
       </View>
     </SafeAreaView>

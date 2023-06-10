@@ -7,6 +7,7 @@ import LoginScreen from './homeScreen/LoginScreen';
 import CountrySelectionScreen from './homeScreen/CountrySelectionScreen';
 import SearchScreen from './homeScreen/SearchScreen';
 import FlightDeals from './homeScreen/FlightDeals';
+import FreeFlights from './homeScreen/FreeFlights';
 
 export default function HomeStackScreen() {
     const HomeStack = createStackNavigator();
@@ -17,6 +18,8 @@ export default function HomeStackScreen() {
         <HomeStack.Screen name="Notifications" component={NotificationsScreen}/>
         <HomeStack.Screen name='Search' component={SearchScreen}/>
         <HomeStack.Screen name='FlightDeals' component={FlightDeals} options={{headerShown: false}}/>
+        <HomeStack.Screen name='FreeFlights' component={FreeFlights} options={{headerShown: false}}/>
+        
       </HomeStack.Group>
       <HomeStack.Group screenOptions={{ presentation: 'modal' }}>
         <HomeStack.Screen name="Login" component={LoginScreen} options={{ headerShown: false}}/>

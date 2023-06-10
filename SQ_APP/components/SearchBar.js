@@ -31,4 +31,18 @@ const SearchBarDestination = ({clicked, searchPhrase, setSearchPhrase, placehold
   );
 };
 
-export {SearchBarDepart, SearchBarDestination};
+const SearchBarFreeFlight = ({clicked, searchPhrase, setSearchPhrase, placeholderInfo}) => {
+  return (
+    <View className="bg-white rounded-md h-8 flex-1 justify-center">
+        {/* Input field */}
+        <TextInput
+          className='text-black text-medium font-medium ml-2'
+          placeholder={placeholderInfo}
+          value={searchPhrase}
+          onChangeText={setSearchPhrase}
+        />
+    </View>
+  );
+}
+
+export {SearchBarDepart, SearchBarDestination, SearchBarFreeFlight};

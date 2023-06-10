@@ -1,9 +1,9 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native'
+import { View, Text } from 'react-native'
 import React from 'react'
+import { TouchableOpacity, Image } from 'react-native'
 import { Ionicons } from '@expo/vector-icons';
 
-
-const BundledDealsCards = ({imgUrl, title, Offer}) => {
+const FreeFlightsBundleCards = ({imgUrl, title, Offer}) => {
   return (
     <TouchableOpacity className='flex-1 rounded-lg p-3 bg-gray-300 mr-3'>
         <Image
@@ -23,4 +23,4 @@ const BundledDealsCards = ({imgUrl, title, Offer}) => {
   )
 }
 
-export default BundledDealsCards
+export default FreeFlightsBundleCards
