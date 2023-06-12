@@ -5,7 +5,7 @@ import { Divider } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import MiniMenu from '../../components/MiniMenu';
 import {SearchBarDepart, SearchBarDestination} from '../../components/SearchBar';
-import FlightSearchButton from '../../components/api/FlightSearch';
+import FlightSearchButton from '../../components/api/FlightSearchApi';
 import FreeFlightsBundle from '../../components/FreeFlightsBundle';
 import LocalHighlightsComp from '../../components/LocalHighlightsComp';
 
