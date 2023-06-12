@@ -19,10 +19,17 @@ app.use(express.json());
 app.use(express.urlencoded({
   extended: true
 }));
-app.use(cors());
+app.use(
+  cors({
+    //replace with deployed endpoint
+    origin: "http://localhost:19000/",
+    credentials: true,
+  })
+); // config cors so that front-end can use
 
-//route middlware
-// app.use('/merchants', apiRoutes);
+app.options("*", cors({
+  //replace with deployed endpoint
+  origin: "http://localhost:19000/"}));
 
 // Routes
 app.use('/merchants', merchantRoutes);
