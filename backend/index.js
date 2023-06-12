@@ -2,11 +2,12 @@ require("dotenv").config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const merchantRoutes = require('./routes/merchants');
 
 const app = express();
 
 mongoose.connect(
-    process.env.MONGODB_URI, { useNewUrlParser: true}
+    process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, dbName: 'SQ_APP' }
 )
 .then((db) => console.log( "db is connected"))
 .catch((err) => console.error('connection failed:', err));
@@ -23,7 +24,8 @@ app.use(cors());
 //route middlware
 // app.use('/merchants', apiRoutes);
 
-app.get('/', (req, res) => res.send('Hello World with Express'));
+// Routes
+app.use('/merchants', merchantRoutes);
 
 //setup server to listen on port 8080
 app.listen(process.env.PORT || 8080, () => {
