@@ -40,6 +40,21 @@ import {
     return res;
   };
 
+  export const getMerchantByName = async (merchantName) => {
+    const res = await axios
+      .get(URL_MERCHANTS_SVC + `?name=${merchantName}`, { withCredentials: true })
+      .then((res) => {
+        if (res && res.status === STATUS_CODE_OK) {
+          return { isSuccess: true, message: res.data };
+        }
+      })
+      .catch((err) => {
+        console.log(err.response.status);
+        return { isSuccess: false, message: err };
+      });
+    return res;
+  };
+
   export const getAllMerchants = async () => {
     const res = await axios
       .get(
@@ -55,7 +70,7 @@ import {
       .catch((err) => {
         console.log(err.response.status);
         return { isSuccess: false, message: err };
-      });
+      }); 
     return res;
   };
   

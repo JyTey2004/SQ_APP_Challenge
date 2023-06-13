@@ -5,6 +5,21 @@ import { TouchableOpacity, Text } from 'react-native';
 
 const apiUrl = 'https://apigw.singaporeair.com/api/uat/v1/commercial/flightavailability/get';
 
+function formatDate() {
+  var d = new Date(),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+  if (month.length < 2) 
+      month = '0' + month;
+  if (day.length < 2) 
+      day = '0' + day;
+
+  return [year, month, day].join('-');
+}
+
+
 const FlightSearch = async (originAirportCode, destinationAirportCode, navigation) => {
     const requestData = {
       clientUUID: '05b2fa78-a0f8-4357-97fe-d18506618c3f',
@@ -13,8 +28,8 @@ const FlightSearch = async (originAirportCode, destinationAirportCode, navigatio
           {
             originAirportCode: originAirportCode,
             destinationAirportCode: destinationAirportCode,
-            departureDate: '2023-06-11',
-            returnDate: '2023-06-13'
+            departureDate: '2023-06-20',
+            returnDate: '2023-06-21'
           }
         ],
         cabinClass: 'Y',
@@ -32,7 +47,7 @@ const FlightSearch = async (originAirportCode, destinationAirportCode, navigatio
 
     try {
       const response = await axios.post(apiUrl, requestData, { headers });
-      console.log(response.data);
+      // console.log(response.data);
       // Handle the response data or update state as needed
       navigation.navigate('FlightDeals', { responseData: response.data });
     } catch (error) {
