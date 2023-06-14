@@ -58,6 +58,24 @@ import {
       });
     return res;
   };
+
+  export const updateMerchant = async (merchantId, data) => {
+    const res = await axios
+      .put(URL_USER_SVC + + `/${merchantId}`, 
+        data,
+        { withCredentials: true 
+      })
+      .then((res) => {
+        if (res && res.status === STATUS_CODE_OK) {
+          return { isSuccess: true, message: res.data };
+        }
+      })
+      .catch((err) => {
+        console.log(err.response.status);
+        return { isSuccess: false, message: err };
+      });
+    return res;
+  };
   
   export const deleteMerchant = async (merchantId) => {
     const res = await axios
