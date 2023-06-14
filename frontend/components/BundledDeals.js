@@ -7,11 +7,23 @@ const BundledDeals = () => {
   const [merchants, setMerchants] = useState([]);
 
   useEffect(() => {
-      async function fetchData() {
-        const response = await getAllMerchants();
-        setMerchants(response.message);
-        console.log(merchants);
-      }
+      const fetchData = async () => {
+        try {
+          const response = await getAllMerchants(); // Call the getAllMerchants API
+          if (response.isSuccess) {
+            console.log('Merchants:', response.message);
+            setMerchants(response.message);
+            // Handle the successful response here, e.g., update component state with the fetched merchants
+          } else {
+            console.log('Failed to get merchants:', response.message);
+            // Handle the error response here
+          }
+        } catch (error) {
+          console.error('Error occurred while getting merchants:', error);
+          // Handle any unexpected errors here
+        }
+      };
+  
       fetchData();
   }, []);
 

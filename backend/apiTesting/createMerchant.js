@@ -1,6 +1,6 @@
 async function createMerchant(merchantData) {
   try {
-    const response = await fetch('http://localhost:8080/merchants', {
+    const response = await fetch('http://localhost:8080/merchants/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

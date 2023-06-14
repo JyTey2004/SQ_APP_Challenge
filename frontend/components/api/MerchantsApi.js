@@ -57,12 +57,14 @@ import {
   };
 
   export const getAllMerchants = async () => {
+    console.log(URL_MERCHANTS_SVC);
     const res = await axios
       .get(
         URL_MERCHANTS_SVC,
-        { withCredentials: true }
+        { withCredentials: true}
       )
       .then((res) => {
+        console.log(res);
         if (res && res.status === STATUS_CODE_OK) {
           return { isSuccess: true, message: res.data };
         }
