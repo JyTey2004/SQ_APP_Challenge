@@ -7,15 +7,16 @@ import {
     STATUS_CODE_UNAUTHORIZED,
   } from '../../constants.js';
 
-  export const createMerchant = async (name, category, locations, items) => {
+  export const createMerchant = async (data) => {
     const res = await axios
-      .post(URL_MERCHANTS_SVC, { name, category, locations, items })
+      .post(URL_MERCHANTS_SVC, data)
       .then((res) => {
         if (res && res.status === STATUS_CODE_CREATED) {
           return { isSuccess: true, message: 'Merchant successfully created' };
         }
       })
       .catch((err) => {
+          console.log(err);
           return { isSuccess: false, message: 'Please try again later' };
         }
       );
@@ -34,7 +35,7 @@ import {
         }
       })
       .catch((err) => {
-        console.log(err.response.status);
+        console.log(err);
         return { isSuccess: false, message: err };
       });
     return res;
@@ -63,12 +64,11 @@ import {
       )
       .then((res) => {
         if (res && res.status === STATUS_CODE_OK) {
-            console.log(res);
           return { isSuccess: true, message: res.data };
         }
       })
       .catch((err) => {
-        console.log(err.response.status);
+        console.log(err);
         return { isSuccess: false, message: err };
       }); 
     return res;
@@ -103,7 +103,7 @@ import {
         }
       })
       .catch((err) => {
-        console.log(err.response.status);
+        console.log(err);
         return { isSuccess: false, message: err };
       });
     return res;
