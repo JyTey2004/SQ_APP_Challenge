@@ -10,6 +10,9 @@ const merchantSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  offer: {
+    type: String,
+  },
   locations: [
     {
       type: String
