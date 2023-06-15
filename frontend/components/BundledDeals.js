@@ -25,7 +25,7 @@ const BundledDeals = () => {
     >
       {merchants.map((merchant) => (
         <BundledDealsCards
-            key = {merchant.id}
+            key={merchant._id}
             imgUrl={merchant.items[0].image}
             title={merchant.name}
             Offer={merchant.offer}
