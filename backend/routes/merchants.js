@@ -3,7 +3,7 @@ const router = express.Router();
 const merchantController = require('../controllers/merchantController');
 
 // Create a new merchant
-router.post('/', merchantController.createMerchant);
+router.post('/submit', merchantController.createMerchant);
 
 // Get all merchants
 router.get('/', merchantController.getAllMerchants);
