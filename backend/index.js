@@ -4,7 +4,6 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
 const merchantRoutes = require('./routes/merchants');
-const Merchant = require('./models/Merchant');
 
 mongoose.connect(
     process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, dbName: 'SQ_APP' }
