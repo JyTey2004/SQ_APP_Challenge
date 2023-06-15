@@ -2,10 +2,14 @@
 ## To Start the App:
 
 1. cd to frontend and run `yarn install`
-2. cd to frontend/configs.js and change `const URI_GATEWAY = "http://localhost:8080";` to `const URI_GATEWAY = "http://<your_ip_address>:8080";`
-3. Run `yarn start` to start expo
-4. Download Expo go on your mobile phone and scan the qr-code
-5. Play with the App
+2. cd to frontend/configs.js and change `URI_GATEWAY` to
+```
+// change "http://localhost:8080" to "http://<your_ip_address>:8080"
+const URI_GATEWAY = "http://<your_ip_address>:8080";
+```
+4. Run `yarn start` to start expo
+5. Download Expo go on your mobile phone and scan the qr-code
+6. Play with the App
 
 ## Backend
 1. cd to backend
