@@ -57,7 +57,6 @@ import {
   };
 
   export const getAllMerchants = async () => {
-    console.log(URL_MERCHANTS_SVC);
     const res = await axios
       .get(
         URL_MERCHANTS_SVC,

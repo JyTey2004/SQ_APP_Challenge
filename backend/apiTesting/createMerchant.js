@@ -23,6 +23,8 @@ async function createMerchant(merchantData) {
 const merchantData = {
   name: 'Dior Perfumes',
   category: 'Perfumes and Cosmetics',
+  offer: 'Extra 20% Miles',
+  mainImg: 'https://t4.ftcdn.net/jpg/02/88/39/77/240_F_288397700_gA1Yy25V25liJG85dX6N5hTOmtzDiW7F.jpg',
   locations: ['Singapore Changi Airport, SIN',
               'London Heathrow Airport, LHR', 
               'Paris Charles de Gaulle Airport, CDG', 

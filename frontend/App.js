@@ -67,8 +67,9 @@ export default function App() {
                     return { display: "none" }
                   } else if (routeName === 'Search') {
                     return { display: "none" }
-                  }
-                  return
+                  } else if (routeName === 'MerchantPage') {
+                    return { display: "none" }
+                  } return
                 })(route),
               })}
           />
