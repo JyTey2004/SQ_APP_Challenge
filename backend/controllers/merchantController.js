@@ -15,7 +15,6 @@ async function createMerchant(req, res) {
 async function getAllMerchants(req, res) {
   try {
     const merchants = await Merchant.find();
-    res.set('Access-Control-Allow-Origin', 'http://localhost:19000')
     res.json(merchants);
   } catch (error) {
     console.error('Failed to get merchants:', error);
