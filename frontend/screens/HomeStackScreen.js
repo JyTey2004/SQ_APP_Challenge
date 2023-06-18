@@ -18,7 +18,7 @@ export default function HomeStackScreen() {
       <HomeStack.Group>
         <HomeStack.Screen name="HomeScreen" component={HomeScreen}  options={{headerShown: false}}/>    
         <HomeStack.Screen name="Notifications" component={NotificationsScreen}/>
-        <HomeStack.Screen name='Search' component={SearchScreen} options={{ animation:'slide_from_bottom' }}/>
+        <HomeStack.Screen name='Search' component={SearchScreen}/>
         <HomeStack.Screen name='FlightDeals' component={FlightDeals} options={{headerShown: false}}/>
         <HomeStack.Screen name='FreeFlights' component={FreeFlights} options={{headerShown: false}}/>
         <HomeStack.Screen name='LocalHighlights' component={LocalHighlights} options={{headerShown: false}}/>
