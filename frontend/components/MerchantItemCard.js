@@ -23,16 +23,16 @@ const MerchantItemCard = ({imgUrl, itemName, prices}) => {
 
   return (
     <TouchableOpacity 
-      className='flex-1 rounded-lg p-3 bg-gray-300 mr-3'
+      className='w-56 rounded-lg p-3 bg-gray-300 mr-3'
       // onPress={() => navigation.navigate('MerchantPage', {merchantId: id})}
       >
         <Image
             source={{
                 uri: imgUrl,
             }}
-            className='object-cover h-36 w-48 rounded-lg'
+            className='object-cover h-36 w-50 rounded-lg'
         />
-    <Text className='text-black font-bold mt-1 text-base'>{itemName}</Text>
+    <Text className='text-black font-bold mt-1 text-base' numberOfLines={1} ellipsizeMode='tail'>{itemName}</Text>
     <Text className='mt-1'>${lowestPrice.price} - {lowestPrice.location}*</Text>
     {/* <Text className='mt-1'>{Offer}</Text> */}
     <View className='mt-1 flex-row items-center'>
