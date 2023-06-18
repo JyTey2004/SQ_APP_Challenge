@@ -72,7 +72,7 @@ const SearchScreen = () => {
                 {getItemText(item.item)}
               </Pressable>
             )}
-            keyExtractor={(item) => item.index}
+            keyExtractor={(item) => item.iata}
           />
         ) : null}
     </SafeAreaView>
