@@ -65,7 +65,7 @@ const SearchScreen = () => {
             showsVerticalScrollIndicator={false}
             renderItem={(item) => (
               <Pressable
-                style={({ pressed }) => [{ opacity: pressed ? 0.5 : 1 }]}
+                className='active:opacity-50'
                 onPress={()=>{}
                 }
               >
