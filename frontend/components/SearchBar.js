@@ -41,6 +41,15 @@ const SearchBarDestination = ({ searchPhrase, setSearchPhrase, placeholderInfo})
           onChangeText={setSearchPhrase}
         />
     </View>
+//     <TouchableOpacity 
+//     onPress={() => navigation.navigate('Search', 'Destination City')}
+//     className='bg-white flex-1 items-center rounded-full h-8 flex-row space-x-2'
+//   >
+//       <View className='ml-2'>
+//         <Ionicons name="search" size={18} color="gray"/>
+//       </View>
+//       <Text className='text-sm text-gray-400'>Destination</Text>
+//   </TouchableOpacity>
   );
 };
 
