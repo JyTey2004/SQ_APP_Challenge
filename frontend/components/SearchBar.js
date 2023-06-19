@@ -1,33 +1,47 @@
 // SearchBar.js
 import React from "react";
-import { StyleSheet, TextInput, View, Keyboard, Button } from "react-native";
+import { StyleSheet, TextInput, View, Keyboard, Button, TouchableOpacity, Text } from "react-native";
 import { Feather, Entypo } from "@expo/vector-icons";
+import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const SearchBarDepart = ({clicked, searchPhrase, setSearchPhrase, placeholderInfo}) => {
+  const navigation = useNavigation();
   return (
-    <View className="bg-white rounded-md h-8 flex-1 justify-center">
-        {/* Input field */}
-        <TextInput
-          className='text-black text-medium font-medium ml-2'
-          placeholder={placeholderInfo}
-          value={searchPhrase}
-          onChangeText={setSearchPhrase}
-        />
-    </View>
+    // <View className="bg-white rounded-md h-8 flex-1 justify-center">
+    //     {/* Input field */}
+    //     <TextInput
+    //       className='text-black text-medium font-medium ml-2'
+    //       placeholder={placeholderInfo}
+    //       value={searchPhrase}
+    //       onChangeText={setSearchPhrase}
+    //     />
+    // </View>
+    <TouchableOpacity 
+    onPress={() => navigation.navigate('Search')}
+    className='bg-white flex-1 items-center rounded-full h-8 flex-row space-x-2'
+  >
+      <View className='ml-2'>
+        <Ionicons name="search" size={18} color="gray"/>
+      </View>
+      <Text className='text-sm text-gray-400'>Departure</Text>
+  </TouchableOpacity>
   );
 };
 
 const SearchBarDestination = ({clicked, searchPhrase, setSearchPhrase, placeholderInfo}) => {
+  const navigation = useNavigation();
   return (
-    <View className="bg-white rounded-md h-8 flex-1 justify-center">
-        {/* Input field */}
-        <TextInput
-          className='text-black text-medium font-medium ml-2'
-          placeholder={placeholderInfo}
-          value={searchPhrase}
-          onChangeText={setSearchPhrase}
-        />
-    </View>
+
+    <TouchableOpacity 
+    onPress={() => navigation.navigate('Search')}
+    className='bg-white flex-1 items-center rounded-full h-8 flex-row space-x-2'
+  >
+      <View className='ml-2'>
+        <Ionicons name="search" size={18} color="gray"/>
+      </View>
+      <Text className='text-sm text-gray-400'>Destination</Text>
+  </TouchableOpacity>
   );
 };
 

@@ -105,7 +105,7 @@ const HomeScreen = () => {
               {/* Free Flights */}
               <View className='bg-white mt-3 pt-2'>
                 <View className='ml-3'>
-                  <Text className=' text-xl font-bold'>Free Flights!</Text>
+                  <Text className='text-xl font-bold'>Free Flights!</Text>
                   <TouchableOpacity 
                     className='flex-row items-center'
                     onPress={() => navigation.navigate('FreeFlights')}
