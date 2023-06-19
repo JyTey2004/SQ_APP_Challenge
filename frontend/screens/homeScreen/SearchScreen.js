@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { View, Text, SafeAreaView, TouchableWithoutFeedback, Keyboard, TextInput, FlatList, Pressable } from 'react-native'
 import {React, useState} from 'react';
-import { Ionicons } from '@expo/vector-icons';
+import { Divider } from 'react-native-elements';
 
 const apiUrl = 'https://www.air-port-codes.com/api/v1/autocomplete';
 
@@ -37,43 +37,52 @@ const SearchScreen = () => {
     let airport = item.iata  + " - " + item.name;
 
     return (
-      <View className='flex-row px-2 pt-4'>
+      <View>
+      <View className='flex-row px-2 '>
         <View className='ml-4'>
-          <Text className='font-bold pb-1'>{cityCountry}</Text>
+          <Text className='font-bold mb-1 text-lg'>{cityCountry}</Text>
           <Text>{airport}</Text>
         </View>
       </View>
-
+      </View>
     );
   };
 
   return (
-    <SafeAreaView className='flex-1 mt-2'>
+    <SafeAreaView className='flex-1 mt-4' elevation={10}>
       {/* <Text className='ml-2 my-3 font-bold text-lg'>
         Depart from
       </Text> */}
+      <View className='mb-4'>
       <TextInput
-        className='bg-white mx-4 px-2 h-12 rounded-md'
+        className='bg-zinc-100 mx-4 px-4 h-12 rounded-md'
         autoFocus={true}
         onChangeText={onChangeText}
+        fontSize= '16px'
         value={input}
         placeholder="Search by city, country or airport code"
       />
+      </View>
         {input && data && data.length > 0 ? (
           <FlatList
             data={data}
             showsVerticalScrollIndicator={false}
             renderItem={(item) => (
-              <Pressable
-                className='active:opacity-50'
-                onPress={()=>{}
-                }
-              >
-                {getItemText(item.item)}
-              </Pressable>
+              <View>
+                <Pressable
+                  className='active:opacity-25'
+                  onPress={()=>{}
+                  }
+                >
+                  {getItemText(item.item)}
+                </Pressable>
+                <Divider style={{backgroundColor:'black', margin:16}} />
+              </View>
             )}
             keyExtractor={(item) => item.iata}
           />
+
+
         ) : null}
     </SafeAreaView>
   )

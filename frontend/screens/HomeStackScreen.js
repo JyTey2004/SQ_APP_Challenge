@@ -13,6 +13,7 @@ import MerchantPage from './merchantScreen/MerchantScreen';
 import MerchantItemScreen from './merchantScreen/MerchantItemScreen';
 import BuyItemScreen from './cartScreen/BuyItemScreen';
 
+
 export default function HomeStackScreen() {
     const HomeStack = createStackNavigator();
   return (
@@ -20,7 +21,23 @@ export default function HomeStackScreen() {
       <HomeStack.Group>
         <HomeStack.Screen name="HomeScreen" component={HomeScreen}  options={{headerShown: false}}/>    
         <HomeStack.Screen name="Notifications" component={NotificationsScreen}/>
-        <HomeStack.Screen name='Search' component={SearchScreen}/>
+        <HomeStack.Screen name='Search' component={SearchScreen} 
+            options={{ 
+              title: 'Departure city',
+              headerStyle: {
+                backgroundColor: '#283593',
+              }, 
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontSize: '24px',
+              },
+              headerBackTitleVisible: false,
+              cardStyle: {
+                backgroundColor: 'white'
+              }
+            }}
+
+        />
         <HomeStack.Screen name='FlightDeals' component={FlightDeals} options={{headerShown: false}}/>
         <HomeStack.Screen name='FreeFlights' component={FreeFlights} options={{headerShown: false}}/>
         <HomeStack.Screen name='LocalHighlights' component={LocalHighlights} options={{headerShown: false}}/>
