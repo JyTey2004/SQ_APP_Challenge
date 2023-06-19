@@ -18,7 +18,7 @@ const SearchBarDepart = ({clicked, searchPhrase, setSearchPhrase, placeholderInf
     //     />
     // </View>
     <TouchableOpacity 
-    onPress={() => navigation.navigate('Search')}
+    onPress={() => navigation.navigate('Search', 'Departure City')}
     className='bg-white flex-1 items-center rounded-full h-8 flex-row space-x-2'
   >
       <View className='ml-2'>
@@ -34,7 +34,7 @@ const SearchBarDestination = ({clicked, searchPhrase, setSearchPhrase, placehold
   return (
 
     <TouchableOpacity 
-    onPress={() => navigation.navigate('Search')}
+    onPress={() => navigation.navigate('Search', 'Destination City')}
     className='bg-white flex-1 items-center rounded-full h-8 flex-row space-x-2'
   >
       <View className='ml-2'>

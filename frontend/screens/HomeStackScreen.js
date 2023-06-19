@@ -22,11 +22,11 @@ export default function HomeStackScreen() {
         <HomeStack.Screen name="HomeScreen" component={HomeScreen}  options={{headerShown: false}}/>    
         <HomeStack.Screen name="Notifications" component={NotificationsScreen}/>
         <HomeStack.Screen name='Search' component={SearchScreen} 
-            options={{ 
-              title: 'Departure city',
+            options={({ route }) => ({ 
+              title: route.params,
               headerStyle: {
                 backgroundColor: '#283593',
-              }, 
+              },  
               headerTintColor: '#fff',
               headerTitleStyle: {
                 fontSize: 24,
@@ -35,8 +35,7 @@ export default function HomeStackScreen() {
               cardStyle: {
                 backgroundColor: 'white'
               }
-            }}
-
+            })}
         />
         <HomeStack.Screen name='FlightDeals' component={FlightDeals} options={{headerShown: false}}/>
         <HomeStack.Screen name='FreeFlights' component={FreeFlights} options={{headerShown: false}}/>
