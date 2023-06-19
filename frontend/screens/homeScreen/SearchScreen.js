@@ -1,11 +1,14 @@
 import axios from 'axios';
 import { View, Text, SafeAreaView, TouchableWithoutFeedback, Keyboard, TextInput, FlatList, Pressable } from 'react-native'
 import {React, useState, useContext} from 'react';
+
 import { Divider } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import { SearchFlightContext } from '../../context/SearchFlightContext.js';
 
+
 const apiUrl = 'https://www.air-port-codes.com/api/v1/autocomplete';
+
 
 const SearchScreen = ({route}) => {
   const navigation = useNavigation();
@@ -35,6 +38,7 @@ const SearchScreen = ({route}) => {
       try {
         const response = await axios.get(`https://www.air-port-codes.com/api/v1/autocomplete?term=${text}&type=a&size=3&limit=15`, { headers });
         if (response.data.airports && response.data.airports.length > 0) {
+          // console.log(response.data.airports);
           setData(response.data.airports);
         }
         // Handle the response data or update state as needed

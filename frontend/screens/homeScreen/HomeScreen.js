@@ -2,7 +2,7 @@ import { View, Text, SafeAreaView, Image, TouchableOpacity, TextInput, FlatList,
 import React,{ useState, useEffect} from 'react'
 import { Ionicons } from '@expo/vector-icons';
 import { Divider } from 'react-native-elements';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useIsFocused } from '@react-navigation/native';
 import MiniMenu from '../../components/MiniMenu';
 import {SearchBarDepart, SearchBarDestination} from '../../components/SearchBar';
 import FlightSearchButton from '../../components/api/FlightSearchApi';
@@ -85,16 +85,16 @@ const HomeScreen = (route) => {
                       <SearchBarDepart
                       searchPhrase={searchPhraseDepart}
                       setSearchPhrase={setSearchPhraseDepart}
-                      placeholderInfo="Departure"
+                      placeholderInfo="Depart From"
                       />
                     </View>
                     <Ionicons name="airplane-outline" color='white' size={30}/>
                     <View className='flex-1'>
                       <SearchBarDestination
-                        searchPhrase={searchPhraseDestination}
                         setSearchPhrase={setSearchPhraseDestination}
-                        placeholderInfo="Destination"
-                        />
+                        placeholderInfo = 'Destination'
+                        searchPhrase = {searchPhraseDestination}
+                      />
                     </View>
                       
                   </View>

@@ -6,7 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { SearchFlightContext } from '../context/SearchFlightContext.js';
 
-const SearchBarDepart = ({route, clicked, searchPhrase, setSearchPhrase, placeholderInfo}) => {
+const SearchBarDepart = ({ searchPhrase, setSearchPhrase, placeholderInfo}) => {
   const navigation = useNavigation();
 
   const { departureAirportCode, departureCity} = useContext(SearchFlightContext);
@@ -32,7 +32,7 @@ const SearchBarDepart = ({route, clicked, searchPhrase, setSearchPhrase, placeho
   );
 };
 
-const SearchBarDestination = ({clicked, searchPhrase, setSearchPhrase, placeholderInfo}) => {
+const SearchBarDestination = ({ searchPhrase, setSearchPhrase, placeholderInfo}) => {
   const navigation = useNavigation();
   const { destinationAirportCode, destinationCity } = useContext(SearchFlightContext);
   const textValue = destinationAirportCode != "" ? destinationAirportCode + ", " + destinationCity : destinationAirportCode
