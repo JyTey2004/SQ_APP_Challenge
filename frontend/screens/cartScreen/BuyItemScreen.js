@@ -1,17 +1,45 @@
-import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, TouchableOpacity, Image, InteractionManager } from 'react-native'
 import React from 'react'
 import {SearchBarFlightDetails} from '../../components/SearchBar'
 import AirlinesCard from '../../components/AirlinesCard'
 import { Ionicons } from '@expo/vector-icons';
 import { Divider } from 'react-native-elements';
 import { useState, useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToBasket, selectBasketItems, selectBasketItemsWithId, removeFromBasket } from '../../features/basketSlice';
 
 const BuyItemScreen = ({route}) => {
-    const itemLocationData = route.params.itemLocationData;
-    // console.log(itemLocationData);
-
     const [itemPrice, setNewitemPrice] = useState(null);
+    const itemLocationData = route.params.itemLocationData;
+    const itemData = route.params.itemData;
+    const addItemToCart = () => {
+        const item = {
+            id: itemLocationData._id,
+            name: itemData.itemName,
+            price: itemLocationData.price,
+            image: itemData.imgUrl,
+            location: itemLocationData.location,
+            quantity: 1,
+        }
+        dispatch(addToBasket(item));
+    }
+    useEffect(() => {
+        // Code to run on component mount
+        addItemToCart();
+        }, []);
+    const items = useSelector((state) => selectBasketItemsWithId(state, itemLocationData._id));
+    // const items = useSelector(selectBasketItems);
+    const dispatch = useDispatch();
+    const navigation = useNavigation();
 
+
+
+    const removeItemFromCart = () => {
+        const id = itemLocationData._id;
+        if (!items.length > 0) return;
+        dispatch(removeFromBasket({id}));
+    }
 
     useEffect(() => {
         // Code to run on component mount
@@ -95,26 +123,35 @@ const BuyItemScreen = ({route}) => {
                 </View>
                 <View className='flex-row items-center mt-3'>
                     <Text className='flex-1 text-black text-lg font-semibold'>KrisFlyer Miles:</Text>
-                    <Text className='text-black text-lg font-base '>{(itemLocationData.price * 1.2).toFixed(2)} Miles</Text>
+                    <Text className='text-black text-lg font-base '>{(itemLocationData.price*items.length*1.2).toFixed(2)} Miles</Text>
                 </View>
                 <View className='flex-row items-center mt-3'>
                     <Text className='flex-1 text-black text-lg font-semibold'>Quantity:</Text>
-                    <TouchableOpacity className='mr-1'>
+                    <TouchableOpacity 
+                        className='mr-1'
+                        onPress={removeItemFromCart}
+                    >
                         <Ionicons name="remove-circle" size={18} color="black" />
                     </TouchableOpacity>
-                    <Text className='text-black text-lg font-base '>1</Text>
-                    <TouchableOpacity className='ml-1'>
+                    <Text className='text-black text-lg font-base '>{items.length}</Text>
+                    <TouchableOpacity 
+                        className='ml-1'
+                        onPress={addItemToCart}
+                    >
                         <Ionicons name="add-circle" size={18} color="black" />
                     </TouchableOpacity>
                 </View>
                 <Divider style={{ backgroundColor: 'black', marginTop: 10, borderBottomWidth: 2 }} />
                 <View className='flex-row items-center mt-3'>
                     <Text className='flex-1 text-black text-lg font-semibold'>Total Price:</Text>
-                    <Text className='text-black text-lg font-semibold '>S${itemPrice}</Text>
+                    <Text className='text-black text-lg font-semibold '>S${(itemPrice*items.length.toFixed(2))}</Text>
                 </View>
             </View>
             <View className='mt-1 ml-3 mr-3'>
-                <TouchableOpacity className='bg-indigo-800 flex-row items-center rounded-lg mt-3 justify-center p-1 mb-3'>
+                <TouchableOpacity 
+                    className='bg-indigo-800 flex-row items-center rounded-lg mt-3 justify-center p-1 mb-3'
+                    onPress={()=>navigation.navigate('ItemCart', {itemData: itemData})}  
+                >
                     <Text className='text-white text-lg font-semibold'>Buy Now</Text>
                 </TouchableOpacity>
             </View>

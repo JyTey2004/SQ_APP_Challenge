@@ -12,6 +12,7 @@ import LocalHighlights from './homeScreen/LocalHighlights';
 import MerchantPage from './merchantScreen/MerchantScreen';
 import MerchantItemScreen from './merchantScreen/MerchantItemScreen';
 import BuyItemScreen from './cartScreen/BuyItemScreen';
+import ItemCart from './cartScreen/ItemCart';
 
 export default function HomeStackScreen() {
     const HomeStack = createStackNavigator();
@@ -27,6 +28,7 @@ export default function HomeStackScreen() {
         <HomeStack.Screen name='MerchantPage' component={MerchantPage} options={{headerShown: false}}/>
         <HomeStack.Screen name='MerchantItemScreen' component={MerchantItemScreen} options={{headerShown: false}}/>
         <HomeStack.Screen name='BuyItemScreen' component={BuyItemScreen} options={{headerShown: false}}/>
+        <HomeStack.Screen name='ItemCart' component={ItemCart} options={{headerShown: false}}/> 
       </HomeStack.Group>
       <HomeStack.Group screenOptions={{ presentation: 'modal' }}>
         <HomeStack.Screen name="Login" component={LoginScreen} options={{ headerShown: false}}/>
