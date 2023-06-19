@@ -29,7 +29,7 @@ export default function HomeStackScreen() {
               }, 
               headerTintColor: '#fff',
               headerTitleStyle: {
-                fontSize: '24px',
+                fontSize: 24,
               },
               headerBackTitleVisible: false,
               cardStyle: {

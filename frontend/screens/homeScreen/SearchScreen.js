@@ -49,7 +49,7 @@ const SearchScreen = () => {
   };
 
   return (
-    <SafeAreaView className='flex-1 mt-4' elevation={10}>
+    <View className='flex-1 mt-4'>
       {/* <Text className='ml-2 my-3 font-bold text-lg'>
         Depart from
       </Text> */}
@@ -80,11 +80,9 @@ const SearchScreen = () => {
               </View>
             )}
             keyExtractor={(item) => item.iata}
-          />
-
-
-        ) : null}
-    </SafeAreaView>
+          />        
+          ) : null}
+    </View>
   )
 }
 
