@@ -10,11 +10,13 @@ import PaymentScreen from './screens/PaymentScreen';
 import WalletScreen from './screens/WalletScreen';
 import HomeStackScreen from './screens/HomeStackScreen';
 import NotificationsScreen from './screens/homeScreen/NotificationsScreen';
+import { SearchFlightContextProvider } from './context/SearchFlightContext';
 
 export default function App() {
   const Tab = createBottomTabNavigator();
 
   return (
+    <SearchFlightContextProvider>
     <NavigationContainer>
       <TailwindProvider>
         <Tab.Navigator
@@ -84,5 +86,6 @@ export default function App() {
         </Tab.Navigator>
       </TailwindProvider>
     </NavigationContainer>
+    </SearchFlightContextProvider>
   );
 }

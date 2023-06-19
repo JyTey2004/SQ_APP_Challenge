@@ -1,14 +1,28 @@
 import axios from 'axios';
 import { View, Text, SafeAreaView, TouchableWithoutFeedback, Keyboard, TextInput, FlatList, Pressable } from 'react-native'
-import {React, useState} from 'react';
+import {React, useState, useContext} from 'react';
 import { Divider } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
+import { SearchFlightContext } from '../../context/SearchFlightContext.js';
 
 const apiUrl = 'https://www.air-port-codes.com/api/v1/autocomplete';
 
-const SearchScreen = () => {
+const SearchScreen = ({route}) => {
+  const navigation = useNavigation();
   const [input, setInput] = useState();
   const [data, setData] = useState();
+  const { setDepartureAirportCode, setDestinationAirportCode, setDepartureCity, setDestinationCity } = useContext(SearchFlightContext);
 
+  const onPress = (code, city) => {
+    if (route.params.headerTitle == 'Departure City') {
+      setDepartureAirportCode(code);
+      setDepartureCity(city);
+    } else {
+      setDestinationAirportCode(code);
+      setDestinationCity(city);
+    }
+    navigation.navigate('HomeScreen');
+  }
   const onChangeText = async (text) => {
     setInput(text);
 
@@ -71,8 +85,7 @@ const SearchScreen = () => {
               <View>
                 <Pressable
                   className='active:opacity-25'
-                  onPress={()=>{}
-                  }
+                  onPress={() => onPress(item.item.iata, item.item.city)}
                 >
                   {getItemText(item.item)}
                 </Pressable>

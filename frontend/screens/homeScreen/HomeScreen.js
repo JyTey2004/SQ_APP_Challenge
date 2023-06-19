@@ -12,7 +12,7 @@ import LocalHighlightsComp from '../../components/LocalHighlightsComp';
 const apiUrl = 'https://apigw.singaporeair.com/api/uat/v1/commercial/flightavailability/get';
 
 
-const HomeScreen = () => {
+const HomeScreen = (route) => {
   const navigation = useNavigation();
 
   const [searchPhraseDepart, setSearchPhraseDepart] = useState("");
@@ -85,7 +85,7 @@ const HomeScreen = () => {
                       <SearchBarDepart
                       searchPhrase={searchPhraseDepart}
                       setSearchPhrase={setSearchPhraseDepart}
-                      placeholderInfo="Depart From"
+                      placeholderInfo="Departure"
                       />
                     </View>
                     <Ionicons name="airplane-outline" color='white' size={30}/>
