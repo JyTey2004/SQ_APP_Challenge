@@ -1,8 +1,6 @@
 // SearchBar.js
-import React, { useState, useEffect, useContext } from "react";
-import { StyleSheet, TextInput, View, Keyboard, Button, TouchableOpacity, Text } from "react-native";
-import { Feather, Entypo } from "@expo/vector-icons";
-import { Ionicons } from '@expo/vector-icons';
+import React, { useContext } from "react";
+import { TextInput, View, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native';
 import { SearchFlightContext } from '../context/SearchFlightContext.js';
 

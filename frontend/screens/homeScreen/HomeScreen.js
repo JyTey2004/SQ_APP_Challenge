@@ -61,7 +61,7 @@ const HomeScreen = (route) => {
 
                 {/* SearchBar */}
                 <TouchableOpacity 
-                  onPress={() => navigation.navigate('Search')}
+                  onPress={() => {}}
                   className='bg-white flex-1 items-center rounded-full ml-4 mr-4 h-8 flex-row space-x-2'
                 >
                     <View className='ml-2'>
