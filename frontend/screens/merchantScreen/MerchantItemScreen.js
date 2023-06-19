@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 const MerchantItemScreen = ({route}) => {
     const ItemData = route.params.itemData;
     const navigation = useNavigation();
-    // console.log(ItemData.itemData.description);
+    console.log(ItemData);
 
   return (
     <SafeAreaView className='bg-white flex-1'>
@@ -46,7 +46,7 @@ const MerchantItemScreen = ({route}) => {
                             </View>
                             <TouchableOpacity 
                                 className='flex-row items-center bg-indigo-800 p-1 rounded-md'
-                                onPress={() => navigation.navigate('BuyItemScreen', {itemLocationData: item})}
+                                onPress={() => navigation.navigate('BuyItemScreen', {itemLocationData: item, itemData: ItemData})}
                             >
                                 <Text className='text-white text-sm font-light'>Buy Now!</Text>
                                 <Ionicons name="chevron-forward-outline" size={20} color="white"/>

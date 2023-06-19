@@ -1,13 +1,33 @@
 import axios from 'axios';
 import { View, Text, SafeAreaView, TouchableWithoutFeedback, Keyboard, TextInput, FlatList, Pressable } from 'react-native'
 import {React, useState} from 'react';
+// import { Ionicons } from '@expo/vector-icons';
+// import { useNavigation } from '@react-navigation/native';
 import { Divider } from 'react-native-elements';
+
 
 const apiUrl = 'https://www.air-port-codes.com/api/v1/autocomplete';
 
-const SearchScreen = () => {
+const SearchScreen = ({route}) => {
+  const navigation = useNavigation();
+
+  const searchType = route.params.searchType;
+
   const [input, setInput] = useState();
   const [data, setData] = useState();
+
+  const [searchDataDepart, setSearchDataDepart] = useState("");
+  const [searchDataDestination, setSearchDataDestination] = useState("");
+
+  const handleSearchDepart = (value) => {
+    setSearchDataDepart(value);
+    navigation.goBack(); // Go back to the HomeScreen
+  };
+
+  const handleSearchDestination = (value) => {
+    setSearchDataDestination(value);
+    navigation.goBack(); // Go back to the HomeScreen
+  };
 
   const onChangeText = async (text) => {
     setInput(text);
@@ -21,6 +41,7 @@ const SearchScreen = () => {
       try {
         const response = await axios.get(`https://www.air-port-codes.com/api/v1/autocomplete?term=${text}&type=a&size=3&limit=15`, { headers });
         if (response.data.airports && response.data.airports.length > 0) {
+          // console.log(response.data.airports);
           setData(response.data.airports);
         }
         // Handle the response data or update state as needed
@@ -71,8 +92,12 @@ const SearchScreen = () => {
               <View>
                 <Pressable
                   className='active:opacity-25'
-                  onPress={()=>{}
-                  }
+//                 onPress={() => {
+//                   if (searchType == 'Departure') {
+//                     handleSearchDepart(item.item.iata); Keyboard.dismiss();
+//                   } else if (searchType == 'Destination') {
+//                     handleSearchDestination(item.item.iata); Keyboard.dismiss();
+//                   }}}
                 >
                   {getItemText(item.item)}
                 </Pressable>
