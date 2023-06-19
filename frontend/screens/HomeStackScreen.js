@@ -9,7 +9,9 @@ import SearchScreen from './homeScreen/SearchScreen';
 import FlightDeals from './homeScreen/FlightDeals';
 import FreeFlights from './homeScreen/FreeFlights';
 import LocalHighlights from './homeScreen/LocalHighlights';
-import MerchantPage from './homeScreen/MerchantPage';
+import MerchantPage from './merchantScreen/MerchantScreen';
+import MerchantItemScreen from './merchantScreen/MerchantItemScreen';
+import BuyItemScreen from './cartScreen/BuyItemScreen';
 
 export default function HomeStackScreen() {
     const HomeStack = createStackNavigator();
@@ -23,6 +25,8 @@ export default function HomeStackScreen() {
         <HomeStack.Screen name='FreeFlights' component={FreeFlights} options={{headerShown: false}}/>
         <HomeStack.Screen name='LocalHighlights' component={LocalHighlights} options={{headerShown: false}}/>
         <HomeStack.Screen name='MerchantPage' component={MerchantPage} options={{headerShown: false}}/>
+        <HomeStack.Screen name='MerchantItemScreen' component={MerchantItemScreen} options={{headerShown: false}}/>
+        <HomeStack.Screen name='BuyItemScreen' component={BuyItemScreen} options={{headerShown: false}}/>
       </HomeStack.Group>
       <HomeStack.Group screenOptions={{ presentation: 'modal' }}>
         <HomeStack.Screen name="Login" component={LoginScreen} options={{ headerShown: false}}/>

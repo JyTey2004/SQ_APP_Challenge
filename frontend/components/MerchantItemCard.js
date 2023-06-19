@@ -5,9 +5,15 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 
 
-const MerchantItemCard = ({imgUrl, itemName, prices}) => {
+const MerchantItemCard = ({imgUrl, description, itemName, prices}) => {
     const navigation = useNavigation();
-    
+    const itemData= {
+      imgUrl,
+      description,
+      itemName,
+      prices
+    }
+
     const getLowestPrice = (prices) => {
       if (prices.length === 0) return null;
       let lowestPrice = prices[0];
@@ -24,7 +30,7 @@ const MerchantItemCard = ({imgUrl, itemName, prices}) => {
   return (
     <TouchableOpacity 
       className='w-56 rounded-lg p-3 bg-gray-300 mr-3'
-      // onPress={() => navigation.navigate('MerchantPage', {merchantId: id})}
+      onPress={() => navigation.navigate('MerchantItemScreen', {itemData: itemData})}
       >
         <Image
             source={{
@@ -32,7 +38,7 @@ const MerchantItemCard = ({imgUrl, itemName, prices}) => {
             }}
             className='object-cover h-36 w-50 rounded-lg'
         />
-    <Text className='text-black font-bold mt-1 text-base' numberOfLines={1} ellipsizeMode='tail'>{itemName}</Text>
+    <Text className='text-black font-bold mt-1 text-base' numberOfLines={1} ellipsizeMode="tail">{itemName}</Text>
     <Text className='mt-1'>${lowestPrice.price} - {lowestPrice.location}*</Text>
     {/* <Text className='mt-1'>{Offer}</Text> */}
     <View className='mt-1 flex-row items-center'>

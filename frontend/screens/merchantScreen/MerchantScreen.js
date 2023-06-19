@@ -65,6 +65,7 @@ const MerchantPage = ({route}) => {
                 imgUrl={item.image}
                 itemName={item.name}
                 prices={item.prices}
+                description={item.description}
                   />
               ))}
           </ScrollView>

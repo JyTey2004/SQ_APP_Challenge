@@ -69,6 +69,10 @@ export default function App() {
                     return { display: "none" }
                   } else if (routeName === 'MerchantPage') {
                     return { display: "none" }
+                  } else if (routeName === 'MerchantItemScreen') {
+                    return { display: "none" } 
+                  } else if (routeName === 'BuyItemScreen') {
+                    return { display: "none" } 
                   } return
                 })(route),
               })}
