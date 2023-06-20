@@ -11,7 +11,7 @@ const BundledDeals = () => {
         try {
           const response = await getAllMerchants(); // Call the getAllMerchants API
           if (response.isSuccess) {
-            console.log('Merchants:', response.message);
+            // console.log('Merchants:', response.message);
             setMerchants(response.message);
             // Handle the successful response here, e.g., update component state with the fetched merchants
           } else {

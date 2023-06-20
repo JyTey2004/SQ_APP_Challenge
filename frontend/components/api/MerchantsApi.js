@@ -63,7 +63,6 @@ import {
         { withCredentials: true}
       )
       .then((res) => {
-        console.log(res);
         if (res && res.status === STATUS_CODE_OK) {
           return { isSuccess: true, message: res.data };
         }

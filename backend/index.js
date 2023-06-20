@@ -15,14 +15,14 @@ mongoose.connect(
 app.use(
   cors({
     //replace with deployed endpoint
-    origin: "http://192.168.1.51:19000",
+    origin: "http://192.168.3.192:19000",
     credentials: true,
   })
 ); // config cors so that front-end can use
 
 app.options("*", cors({
     //replace with deployed endpoint
-    origin: "http://192.168.1.51:19000"}));
+    origin: "http://192.168.3.192:19000"}));
 
 
 // parse requests of content-type - application/json
