@@ -32,13 +32,14 @@ const ItemCart = () => {
             <View className='flex-1 items-center mb-2 flex-row'>
                 <Text className='text-white font-bold text-xl'>Shopping Cart</Text>
                 <TouchableOpacity 
-                        onPress={() => navigation.navigate('FlightDeals')}
+                        onPress={() => navigation.goBack()}
                         className='flex-1 items-center justify-end flex-row mr-3'
                     >
                         <Text className='text-white font-semibold text-xl'>Shops</Text>
                 </TouchableOpacity>
             </View>
         </View>
+
         <View className='bg-white'>
             <View className='items-center ml-3 mr-3 mt-2'>
                 <View className='flex-row'>
@@ -46,7 +47,9 @@ const ItemCart = () => {
                     <Text className='w-1/5 text-black font-semibold text-lg text-center mr-1'>Qty</Text>
                 </View>
             </View>
+
             <Divider className='ml-3 mr-3 mb-1' style={{ backgroundColor: 'black', borderBottomWidth: 2 }} />
+
             <ScrollView className='bg-gray-200 rounded-lg ml-3 mr-3 mt-1 h-3/4'>
                 {Object.entries(groupItemsInBasket).map(([key, items]) => (
                     <View key={key} >
@@ -89,7 +92,7 @@ const ItemCart = () => {
             </View>
 
             <TouchableOpacity 
-                    // onPress={() => navigation.navigate('Checkout')}
+                    onPress={() => navigation.navigate('CheckoutScreen')}
                     className='bg-indigo-800 rounded-lg ml-3 mr-3 mt-3 mb-3'
                 >
                     <View className='flex flex-row items-center mt-2 mb-2 p-1'>

@@ -80,6 +80,8 @@ export default function App() {
                       return { display: "none" } 
                     } else if (routeName === 'ItemCart') {
                       return { display: "none" } 
+                    } else if (routeName === 'CheckoutScreen') {
+                      return { display: "none" } 
                     } return
                   })(route),
                 })}

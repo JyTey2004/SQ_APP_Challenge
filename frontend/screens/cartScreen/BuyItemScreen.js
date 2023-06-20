@@ -11,6 +11,7 @@ import { addToBasket, selectBasketItems, selectBasketItemsWithId, removeFromBask
 
 const BuyItemScreen = ({route}) => {
     const [itemPrice, setNewitemPrice] = useState(null);
+    const [collectionMethod, setCollectionMethod] = useState('Self-Collection');
     const itemLocationData = route.params.itemLocationData;
     const itemData = route.params.itemData;
     const addItemToCart = () => {
@@ -20,6 +21,7 @@ const BuyItemScreen = ({route}) => {
             price: itemLocationData.price,
             image: itemData.imgUrl,
             location: itemLocationData.location,
+            collectionMethod: collectionMethod,
             quantity: 1,
         }
         dispatch(addToBasket(item));

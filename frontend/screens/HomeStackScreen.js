@@ -13,6 +13,7 @@ import MerchantPage from './merchantScreen/MerchantScreen';
 import MerchantItemScreen from './merchantScreen/MerchantItemScreen';
 import BuyItemScreen from './cartScreen/BuyItemScreen';
 import ItemCart from './cartScreen/ItemCart';
+import CheckoutScreen from './cartScreen/CheckoutScreen';
 
 
 export default function HomeStackScreen() {
@@ -49,6 +50,7 @@ export default function HomeStackScreen() {
       <HomeStack.Group screenOptions={{ presentation: 'modal' }}>
         <HomeStack.Screen name="Login" component={LoginScreen} options={{ headerShown: false}}/>
         <HomeStack.Screen name="CountrySelection" component={CountrySelectionScreen} options={{headerShown: false}}/>
+        <HomeStack.Screen name='CheckoutScreen' component={CheckoutScreen} options={{headerShown: false}}/>
       </HomeStack.Group>
         
     </HomeStack.Navigator>
