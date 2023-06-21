@@ -1,34 +1,31 @@
 import axios from 'axios';
 import { View, Text, SafeAreaView, TouchableWithoutFeedback, Keyboard, TextInput, FlatList, Pressable } from 'react-native'
-import {React, useState} from 'react';
-// import { Ionicons } from '@expo/vector-icons';
-// import { useNavigation } from '@react-navigation/native';
+import {React, useState, useContext} from 'react';
+
 import { Divider } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
+import { SearchFlightContext } from '../../context/SearchFlightContext.js';
 
 
 const apiUrl = 'https://www.air-port-codes.com/api/v1/autocomplete';
 
+
 const SearchScreen = ({route}) => {
   const navigation = useNavigation();
-
-  const searchType = route.params.searchType;
-
   const [input, setInput] = useState();
   const [data, setData] = useState();
+  const { setDepartureAirportCode, setDestinationAirportCode, setDepartureCity, setDestinationCity } = useContext(SearchFlightContext);
 
-  const [searchDataDepart, setSearchDataDepart] = useState("");
-  const [searchDataDestination, setSearchDataDestination] = useState("");
-
-  const handleSearchDepart = (value) => {
-    setSearchDataDepart(value);
-    navigation.goBack(); // Go back to the HomeScreen
-  };
-
-  const handleSearchDestination = (value) => {
-    setSearchDataDestination(value);
-    navigation.goBack(); // Go back to the HomeScreen
-  };
-
+  const onPress = (code, city) => {
+    if (route.params.headerTitle == 'Departure City') {
+      setDepartureAirportCode(code);
+      setDepartureCity(city);
+    } else {
+      setDestinationAirportCode(code);
+      setDestinationCity(city);
+    }
+    navigation.navigate('HomeScreen');
+  }
   const onChangeText = async (text) => {
     setInput(text);
 
@@ -92,12 +89,7 @@ const SearchScreen = ({route}) => {
               <View>
                 <Pressable
                   className='active:opacity-25'
-//                 onPress={() => {
-//                   if (searchType == 'Departure') {
-//                     handleSearchDepart(item.item.iata); Keyboard.dismiss();
-//                   } else if (searchType == 'Destination') {
-//                     handleSearchDestination(item.item.iata); Keyboard.dismiss();
-//                   }}}
+                  onPress={() => onPress(item.item.iata, item.item.city)}
                 >
                   {getItemText(item.item)}
                 </Pressable>

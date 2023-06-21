@@ -12,7 +12,7 @@ import LocalHighlightsComp from '../../components/LocalHighlightsComp';
 const apiUrl = 'https://apigw.singaporeair.com/api/uat/v1/commercial/flightavailability/get';
 
 
-const HomeScreen = () => {
+const HomeScreen = (route) => {
   const navigation = useNavigation();
 
   const [searchPhraseDepart, setSearchPhraseDepart] = useState("");
@@ -61,7 +61,7 @@ const HomeScreen = () => {
 
                 {/* SearchBar */}
                 <TouchableOpacity 
-                  onPress={() => navigation.navigate('Search')}
+                  onPress={() => {}}
                   className='bg-white flex-1 items-center rounded-full ml-4 mr-4 h-8 flex-row space-x-2'
                 >
                     <View className='ml-2'>
@@ -83,9 +83,9 @@ const HomeScreen = () => {
                   <View className='flex-row items-center space-x-3'>
                     <View className='flex-1'>
                       <SearchBarDepart
-                        setSearchPhrase={setSearchPhraseDepart}
-                        placeholderInfo = 'Departure'
-                        searchPhrase = {searchPhraseDepart}
+                      searchPhrase={searchPhraseDepart}
+                      setSearchPhrase={setSearchPhraseDepart}
+                      placeholderInfo="Depart From"
                       />
                     </View>
                     <Ionicons name="airplane-outline" color='white' size={30}/>

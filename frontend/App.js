@@ -10,6 +10,7 @@ import PaymentScreen from './screens/PaymentScreen';
 import WalletScreen from './screens/WalletScreen';
 import HomeStackScreen from './screens/HomeStackScreen';
 import NotificationsScreen from './screens/homeScreen/NotificationsScreen';
+import { SearchFlightContextProvider } from './context/SearchFlightContext';
 import { Provider } from 'react-redux';
 import store from './store';
 
@@ -17,6 +18,7 @@ export default function App() {
   const Tab = createBottomTabNavigator();
 
   return (
+    <SearchFlightContextProvider>
     <NavigationContainer>
       <Provider store={store}>
         <TailwindProvider>
@@ -96,5 +98,6 @@ export default function App() {
         </TailwindProvider>
       </Provider>
     </NavigationContainer>
+    </SearchFlightContextProvider>
   );
 }

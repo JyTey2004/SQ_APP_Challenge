@@ -3,9 +3,11 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
+
 const merchantRoutes = require('./routes/merchants');
 const krisMembershipRoutes = require('./routes/krisMembership');
 const merchantMembershipRoutes = require('./routes/merchantMembership');
+
 
 mongoose.connect(
     process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, dbName: 'SQ_APP' }

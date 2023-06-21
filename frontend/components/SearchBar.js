@@ -1,55 +1,57 @@
 // SearchBar.js
-import React from "react";
-import { StyleSheet, TextInput, View, Keyboard, Button, TouchableOpacity, Text } from "react-native";
-import { Feather, Entypo } from "@expo/vector-icons";
-import { Ionicons } from '@expo/vector-icons';
+import React, { useContext } from "react";
+import { TextInput, View, TouchableOpacity } from "react-native";
 import { useNavigation } from '@react-navigation/native';
+import { SearchFlightContext } from '../context/SearchFlightContext.js';
 
 const SearchBarDepart = ({ searchPhrase, setSearchPhrase, placeholderInfo}) => {
   const navigation = useNavigation();
+
+  const { departureAirportCode, departureCity} = useContext(SearchFlightContext);
+  const textValue = departureAirportCode != "" ? departureAirportCode + ", " + departureCity : departureAirportCode
   return (
+    <TouchableOpacity 
+    onPress={() => navigation.navigate('Search', {headerTitle:'Departure City'})}
+    className='bg-white flex-1 items-center rounded-full h-8 flex-row space-x-2'
+  >
     <View className="bg-white rounded-md h-8 flex-1 justify-center">
         {/* Input field */}
         <TextInput
           className='text-black text-medium font-medium ml-2'
+          editable={false}
           placeholder={placeholderInfo}
-          value={searchPhrase}
+          value={textValue}
           onChangeText={setSearchPhrase}
         />
     </View>
-  //   <TouchableOpacity 
-  //   onPress={() => navigation.navigate('Search', {searchType: 'Departure'})}
-  //   className='bg-white flex-1 items-center rounded-full h-8 flex-row space-x-2'
-  // >
-  //     <View className='ml-2'>
-  //       <Ionicons name="search" size={18} color="gray"/>
-  //     </View>
-  //     <Text className='text-sm text-gray-400'>Departure</Text>
-  // </TouchableOpacity>
+
+    </TouchableOpacity>
+
   );
 };
 
 const SearchBarDestination = ({ searchPhrase, setSearchPhrase, placeholderInfo}) => {
   const navigation = useNavigation();
+  const { destinationAirportCode, destinationCity } = useContext(SearchFlightContext);
+  const textValue = destinationAirportCode != "" ? destinationAirportCode + ", " + destinationCity : destinationAirportCode
   return (
+
+    <TouchableOpacity 
+    onPress={() => navigation.navigate('Search', {headerTitle:'Destination City'})}
+    className='bg-white flex-1 items-center rounded-full h-8 flex-row space-x-2'
+  >
     <View className="bg-white rounded-md h-8 flex-1 justify-center">
         {/* Input field */}
         <TextInput
           className='text-black text-medium font-medium ml-2'
+          editable={false}
           placeholder={placeholderInfo}
-          value={searchPhrase}
+          value={textValue}
           onChangeText={setSearchPhrase}
         />
     </View>
-//     <TouchableOpacity 
-//     onPress={() => navigation.navigate('Search', 'Destination City')}
-//     className='bg-white flex-1 items-center rounded-full h-8 flex-row space-x-2'
-//   >
-//       <View className='ml-2'>
-//         <Ionicons name="search" size={18} color="gray"/>
-//       </View>
-//       <Text className='text-sm text-gray-400'>Destination</Text>
-//   </TouchableOpacity>
+
+    </TouchableOpacity>
   );
 };
 

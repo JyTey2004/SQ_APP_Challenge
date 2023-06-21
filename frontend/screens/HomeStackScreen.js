@@ -25,7 +25,7 @@ export default function HomeStackScreen() {
         <HomeStack.Screen name="Notifications" component={NotificationsScreen}/>
         <HomeStack.Screen name='Search' component={SearchScreen} 
             options={({ route }) => ({ 
-              title: route.params,
+              title: route.params.headerTitle,
               headerStyle: {
                 backgroundColor: '#283593',
               },  

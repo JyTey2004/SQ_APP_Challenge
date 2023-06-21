@@ -47,7 +47,7 @@ const FlightSearch = async (originAirportCode, destinationAirportCode, navigatio
 
     try {
       const response = await axios.post(apiUrl, requestData, { headers });
-      // console.log(response.data);
+      console.log(response.data);
       // Handle the response data or update state as needed
       navigation.navigate('FlightDeals', { responseData: response.data });
     } catch (error) {
@@ -58,7 +58,9 @@ const FlightSearch = async (originAirportCode, destinationAirportCode, navigatio
 
 const FlightSearchButton = ({ originAirportCode, destinationAirportCode }) => {
     const navigation = useNavigation();
-  
+    console.log(originAirportCode);
+    console.log(destinationAirportCode)
+
     return (
       <TouchableOpacity
             onPress={() => FlightSearch(originAirportCode, destinationAirportCode, navigation)}
