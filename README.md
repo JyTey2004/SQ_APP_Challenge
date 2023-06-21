@@ -1,17 +1,20 @@
 
 ## To Start the App:
 ### Backend
-1. cd to backend
+1. cd to backend/merchant-service
 2. Rename `.env.sample` file to `.env`.
 3. Enter the DB URL as `MONGODB_URI` in `.env` file.
 4. Install packages using `yarn install`.
 5. Run server using `yarn start`.
+6. cd to backend/payment-service
+7. Repeat steps 5-6
 ### Frontend
 1. cd to frontend and run `yarn install`
-2. cd to frontend/configs.js and change `URI_GATEWAY` to
+2. cd to frontend/configs.js and change `URI_GATEWAY` and `STRIPE_API_URL` to
 ```
 // change "http://localhost:8080" to "http://<your_ip_address>:8080"
 const URI_GATEWAY = "http://<your_ip_address>:8080";
+const STRIPE_API_URL = "http://<your_ip_address>:4242";
 ```
 3. Run `yarn start` to start expo
 4. Download Expo go on your mobile phone and scan the qr-code
