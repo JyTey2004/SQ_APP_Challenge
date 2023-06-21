@@ -7,7 +7,7 @@
 4. Install packages using `yarn install`.
 5. Run server using `yarn start`.
 6. cd to backend/payment-service
-7. Repeat steps 5-6
+7. Repeat steps 4-5
 ### Frontend
 1. cd to frontend and run `yarn install`
 2. cd to frontend/configs.js and change `URI_GATEWAY` and `STRIPE_API_URL` to
