@@ -18,14 +18,15 @@ const BundledDealsCards = ({imgUrl, title, Offer, id}) => {
             }}
             className='object-cover h-24 w-48 rounded-lg'
         />
-      <View>
+    <View>
         <Text className='text-black font-medium mt-1 text-lg' numberOfLines={1} ellipsizeMode="tail">{title}</Text>
           <Text className='mt-1'>{Offer}!</Text>
           <View className='mt-1 flex-row items-center'>
               <Text>Compare prices and more!</Text>
               <Ionicons name="chevron-forward-outline" size={18}/>
           </View>
-        </View>
+      </View>
+    
     </TouchableOpacity>
   )
 }

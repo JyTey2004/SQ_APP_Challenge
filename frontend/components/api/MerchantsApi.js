@@ -56,6 +56,54 @@ import {
     return res;
   };
 
+  export const getMerchantByCategory = async (category) => {
+    const res = await axios
+      .get(URL_MERCHANTS_SVC + `/category/${category}`, { withCredentials: true })
+      .then((res) => {
+        if (res && res.status === STATUS_CODE_OK) {
+          return { isSuccess: true, message: res.data };
+        }
+      })
+      .catch((err) => {
+        console.log(err.response.status);
+        return { isSuccess: false, message: err };
+      });
+    return res;
+  };
+
+  export const getMerchantByLocation = async (location) => {
+    const res = await axios
+      .get(URL_MERCHANTS_SVC + `?location=${location}`, { withCredentials: true })
+      .then((res) => {
+        if (res && res.status === STATUS_CODE_OK) {
+          return { isSuccess: true, message: res.data };
+        }
+      })
+      .catch((err) => {
+        console.log(err.response.status);
+        return { isSuccess: false, message: err };
+      });
+    return res;
+  };
+
+  export const getMerchantBySingleLocation = async (location) => {
+    const res = await axios
+      .get(URL_MERCHANTS_SVC + `?location=${location}`, { withCredentials: true })
+      .then((res) => {
+        if (res && res.status === STATUS_CODE_OK) {
+          const  merchantsWithSingleLocation = res.data.filter(
+            (merchant) => merchant.locations.length === 1
+          );
+          return { isSuccess: true, message: res.data };
+        }
+      })
+      .catch((err) => {
+        console.log(err.response.status);
+        return { isSuccess: false, message: err };
+      });
+    return res;
+  };
+
   export const getAllMerchants = async () => {
     const res = await axios
       .get(

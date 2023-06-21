@@ -3,7 +3,7 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './homeScreen/HomeScreen';
 import NotificationsScreen from './homeScreen/NotificationsScreen';
-import LoginScreen from './homeScreen/LoginScreen';
+import MembershipScreen from './homeScreen/MembershipScreen';
 import CountrySelectionScreen from './homeScreen/CountrySelectionScreen';
 import SearchScreen from './homeScreen/SearchScreen';
 import FlightDeals from './homeScreen/FlightDeals';
@@ -48,7 +48,7 @@ export default function HomeStackScreen() {
         <HomeStack.Screen name='ItemCart' component={ItemCart} options={{headerShown: false}}/> 
       </HomeStack.Group>
       <HomeStack.Group screenOptions={{ presentation: 'modal' }}>
-        <HomeStack.Screen name="Login" component={LoginScreen} options={{ headerShown: false}}/>
+        <HomeStack.Screen name="MembershipScreen" component={MembershipScreen} options={{ headerShown: false}}/>
         <HomeStack.Screen name="CountrySelection" component={CountrySelectionScreen} options={{headerShown: false}}/>
         <HomeStack.Screen name='CheckoutScreen' component={CheckoutScreen} options={{headerShown: false}}/>
       </HomeStack.Group>

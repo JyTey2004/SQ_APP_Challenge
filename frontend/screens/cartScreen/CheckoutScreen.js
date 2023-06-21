@@ -121,7 +121,7 @@ const CheckoutScreen = () => {
                     <Text className='text-black font-bold text-xl mb-1'>Choose Collection Method:</Text>
                     <Divider className='mt-2 mb-3' style={{ backgroundColor: 'black', borderBottomWidth: 2 }} />
             </View>
-            <ScrollView className='bg-gray-200 rounded-lg ml-3 mr-3 mt-1 h-3/4'>
+            <ScrollView className='bg-gray-200 rounded-lg ml-3 mr-3 mt-1 h-2/3'>
                 {Object.entries(groupItemsInBasket).map(([key, items]) => (
                     <View key={key} >
                         <View className='flex flex-row items-center mt-2 p-2'>

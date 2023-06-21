@@ -25,9 +25,9 @@ const HomeScreen = (route) => {
         <Text className="text-white text-4xl font-bold ml-3 flex-1">KRIS+</Text>
         <TouchableOpacity 
           className='flex-row items-center mr-3'
-          onPress={() => navigation.navigate('Login')}
+          onPress={() => navigation.navigate('MembershipScreen')}
         >
-            <Text className="text-white text-medium font-medium">LOG IN OR SIGN UP</Text>
+            <Text className="text-white text-medium font-medium">VIEW MEMBERSHIPS</Text>
             <Ionicons name="chevron-forward-outline" size={20} color="white"/>
         </TouchableOpacity>
       </View>
