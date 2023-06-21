@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
-const merchantRoutes = require('./merchant-service/routes/merchants');
+const merchantRoutes = require('./routes/merchants');
 
 mongoose.connect(
     process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, dbName: 'SQ_APP' }
@@ -39,4 +39,4 @@ app.use('/merchants', merchantRoutes);
 //setup server to listen on port 8080
 app.listen(process.env.PORT || 8080, () => {
     console.log("Server is live on port 8080");
-  })
+})

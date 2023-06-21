@@ -1,4 +1,7 @@
 const URI_GATEWAY = "http://192.168.50.21:8080";
 const PREFIX_MERCHANTS_SVC = "/merchants";
+const STRIPE_API_URL = "http://192.168.50.21:4242"
+const PREFIX_PAYMENT_INTENT = "/create-payment-intent";
 
 export const URL_MERCHANTS_SVC = URI_GATEWAY + PREFIX_MERCHANTS_SVC;
+export const URL_PAYMENT_SVC = STRIPE_API_URL  + PREFIX_PAYMENT_INTENT;
