@@ -1,13 +1,13 @@
-import { View, Text, TouchableOpacity, ScrollView, Image } from 'react-native'
-import React, { useEffect } from 'react'
+import { Alert, View, SafeAreaView, Text, TouchableOpacity, ScrollView, Image } from 'react-native'
+import React, { useEffect, useState, useMemo  } from 'react'
 import { Divider } from 'react-native-elements'
 import { useSelector } from 'react-redux'
 import { selectBasketTotal } from '../../features/basketSlice'
 import { selectBasketItems } from '../../features/basketSlice'
-import { useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { useDispatch } from 'react-redux'
-import { useMemo } from 'react'
+import { StripeProvider, usePaymentSheet } from '@stripe/stripe-react-native';
+import { URL_PAYMENT_SVC } from '../../configs'
 
 const CheckoutScreen = () => {
     const items = useSelector(selectBasketItems);
@@ -18,6 +18,72 @@ const CheckoutScreen = () => {
     const [collectionMethods, setCollectionMethods] = useState({});
     const [logisticsFee, setLogisticsFee] = useState(0);
     const [feeAddedItems, setFeeAddedItems] = useState([]);
+
+    const {initPaymentSheet, presentPaymentSheet, loading} = usePaymentSheet();
+
+    useEffect(() => {
+        initialisePaymentSheet();
+    }, []);
+    
+    const initialisePaymentSheet = async () => {
+        const {
+            paymentIntent,
+            ephemeralKey,
+            customer
+        } = await fetchPaymentSheetParams();
+        console.log(paymentIntent);
+
+        const {error} = await initPaymentSheet({
+            customerId: customer,
+            customerEphemeralKeySecret: ephemeralKey,
+            paymentIntentClientSecret: paymentIntent,
+            merchantDisplayName: 'Example Inc.',
+        //   applePay: {
+        //     merchantCountryCode: 'US',
+        //   },
+        //   googlePay: {
+        //     merchantCountryCode: 'US',
+        //     testEnv: true,
+        //     currencyCode: 'usd',
+        //   },
+            allowsDelayedPaymentMethods: true,
+        //   returnURL: 'stripe-example://stripe-redirect',
+        });
+        if (error) {
+            Alert.alert(`Error code: ${error.code}`, error.message);
+        }
+    };
+
+    const fetchPaymentSheetParams = async () => {
+        console.log(basketTotal, logisticsFee);
+        const response = await fetch(URL_PAYMENT_SVC, {
+          method: 'POST',
+          body: JSON.stringify({
+            basketTotal: basketTotal,
+            logisticsFee: logisticsFee
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        const { paymentIntent, ephemeralKey, customer, publishableKey } = await response.json();
+    
+        return {
+          paymentIntent,
+          ephemeralKey,
+          customer,
+        };
+    };
+
+    const handlePayment = async () => {
+        const {error} = await presentPaymentSheet();
+
+        if (error) {
+            Alert.alert(`Error code: ${error.code}`, error.message);
+        } else {
+            Alert.alert('Success', 'The payment method was setup successfully');
+        }
+    }
 
     const handleCollectionMethodChange = (itemId, method) => {
       setCollectionMethods(prevState => ({
@@ -45,7 +111,7 @@ const CheckoutScreen = () => {
 
 
   return (
-    <View className='bg-indigo-800'>
+    <SafeAreaView className='bg-indigo-800'>
         <View className='items-center mt-2 mb-2'>
             <Text className='text-white text-2xl font-bold'>Checkout</Text>
         </View>
@@ -129,16 +195,20 @@ const CheckoutScreen = () => {
                 </View>
             </View>
             <Divider className='ml-3 mr-3 mt-2' style={{ backgroundColor: 'black', borderBottomWidth: 2 }} />
-            <View className='flex-1 ml-3 mr-3 mt-3 mb-3'>
-                <TouchableOpacity
-                    className='bg-indigo-800 items-center rounded-lg p-2 justify-center'
-                    // onPress={() => handleCheckout()}
-                >
-                    <Text className='text-white font-semibold text-xl'>Pay</Text>
-                </TouchableOpacity>
-            </View>
+            <StripeProvider
+                publishableKey='pk_test_51NL0E4CFUh3VvAw0wYvBNks6ohwVJaDmt05q4odz8sz7qg7d0UXa84FAQQ6TGpfN0vDwEDO1TdZZHW0irT1Ajioz00Mhzfm4m6'
+            >
+                <View className='flex-1 ml-3 mr-3 mt-3 mb-3'>
+                    <TouchableOpacity
+                        className='bg-indigo-800 items-center rounded-lg p-2 justify-center'
+                        onPress={handlePayment}
+                    >
+                        <Text className='text-white font-semibold text-xl'>Pay</Text>
+                    </TouchableOpacity>
+                </View>
+            </StripeProvider>
         </View>
-    </View>
+    </SafeAreaView>
   )
 }
 
