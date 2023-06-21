@@ -28,8 +28,8 @@ const FlightSearch = async (originAirportCode, destinationAirportCode, navigatio
           {
             originAirportCode: originAirportCode,
             destinationAirportCode: destinationAirportCode,
-            departureDate: '2023-06-20',
-            returnDate: '2023-06-21'
+            departureDate: '2023-06-30',
+            returnDate: '2023-06-31'
           }
         ],
         cabinClass: 'Y',

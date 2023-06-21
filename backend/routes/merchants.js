@@ -17,4 +17,6 @@ router.put('/:id', merchantController.updateMerchant);
 // Delete a merchant by ID
 router.delete('/:id', merchantController.deleteMerchant);
 
+router.get('/category/:category', merchantController.getMerchantByCategory);
+
 module.exports = router;

@@ -4,6 +4,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
 const merchantRoutes = require('./routes/merchants');
+const krisMembershipRoutes = require('./routes/krisMembership');
+const merchantMembershipRoutes = require('./routes/merchantMembership');
 
 mongoose.connect(
     process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, dbName: 'SQ_APP' }
@@ -15,14 +17,14 @@ mongoose.connect(
 app.use(
   cors({
     //replace with deployed endpoint
-    origin: "http://192.168.1.51:19000",
+    origin: "http://192.168.3.192:19000",
     credentials: true,
   })
 ); // config cors so that front-end can use
 
 app.options("*", cors({
     //replace with deployed endpoint
-    origin: "http://192.168.1.51:19000"}));
+    origin: "http://192.168.3.192:19000"}));
 
 
 // parse requests of content-type - application/json
@@ -35,6 +37,9 @@ app.use(express.urlencoded({
 // Routes
 app.use('/merchants', merchantRoutes);
 
+app.use('/krismembership', krisMembershipRoutes);
+
+app.use('/merchantmembership', merchantMembershipRoutes);
 
 //setup server to listen on port 8080
 app.listen(process.env.PORT || 8080, () => {

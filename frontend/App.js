@@ -80,6 +80,10 @@ export default function App() {
                       return { display: "none" } 
                     } else if (routeName === 'CheckoutScreen') {
                       return { display: "none" } 
+                    } else if (routeName === 'FlightDeals') {
+                      return { display: "none" } 
+                    } else if (routeName === 'MembershipScreen') {
+                      return { display: "none" } 
                     } return
                   })(route),
                 })}

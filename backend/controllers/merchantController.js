@@ -22,6 +22,20 @@ async function getAllMerchants(req, res) {
   }
 }
 
+async function getMerchantByCategory(req, res) {
+  const { category } = req.params;
+  try {
+    const merchant = await Merchant.find({category: category});
+    if (!merchant) {
+      return res.status(404).json({ error: 'Merchant not found' });
+    }
+    res.json(merchant);
+  } catch (error) {
+    console.error('Failed to get merchant:', error);
+    res.status(500).json({ error: 'Failed to get merchant' });
+  }
+}
+
 // Get a merchant by ID
 async function getMerchantById(req, res) {
   const { id } = req.params;
@@ -75,4 +89,5 @@ module.exports = {
   getMerchantById,
   updateMerchant,
   deleteMerchant,
+  getMerchantByCategory
 };

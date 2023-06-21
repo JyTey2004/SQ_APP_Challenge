@@ -9,7 +9,7 @@ const BundledDealsCards = ({imgUrl, title, Offer, id}) => {
     const navigation = useNavigation();
   return (
     <TouchableOpacity 
-      className='flex-1 rounded-lg p-3 bg-gray-300 mr-3'
+      className='w-52 rounded-lg p-3 bg-gray-300 mr-3 items-center'
       onPress={() => navigation.navigate('MerchantPage', {merchantId: id})}
       >
         <Image
@@ -18,12 +18,14 @@ const BundledDealsCards = ({imgUrl, title, Offer, id}) => {
             }}
             className='object-cover h-24 w-48 rounded-lg'
         />
-    <Text className='text-black font-medium mt-1 text-lg'>{title}</Text>
-    <Text className='mt-1'>{Offer}!</Text>
-    <View className='mt-1 flex-row items-center'>
-        <Text>Compare prices and more!</Text>
-        <Ionicons name="chevron-forward-outline" size={18}/>
-    </View>
+    <View>
+        <Text className='text-black font-medium mt-1 text-lg' numberOfLines={1} ellipsizeMode="tail">{title}</Text>
+          <Text className='mt-1'>{Offer}!</Text>
+          <View className='mt-1 flex-row items-center'>
+              <Text>Compare prices and more!</Text>
+              <Ionicons name="chevron-forward-outline" size={18}/>
+          </View>
+      </View>
     
     </TouchableOpacity>
   )

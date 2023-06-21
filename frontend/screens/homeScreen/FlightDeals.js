@@ -2,12 +2,14 @@ import { View, Text, FlatList, SafeAreaView, ScrollView, TouchableOpacity } from
 import React from 'react'
 import { Ionicons } from '@expo/vector-icons';
 import BundledDeals from '../../components/BundledDeals';
+import CountryExclusiveDeals from '../../components/CountryExclusiveDeals';
 
 const FlightDeals = ({route}) => {
   const { responseData } = route.params;
 
   return (
     <SafeAreaView className='flex-1 bg-white'>
+      <ScrollView>
       <View className='flex-row items-center mt-3 ml-3 space-x-3'>
         <Text className='text-2xl font-bold'>Flight Details</Text>
         <Ionicons name="airplane-outline" color='black' size={30}/>
@@ -39,6 +41,29 @@ const FlightDeals = ({route}) => {
           </TouchableOpacity>
           <BundledDeals/>
       </View>
+
+      <View className='ml-3 mt-3 mr-3'>
+          <Text className='text-xl font-bold'>Explore Foodies!</Text>
+          <TouchableOpacity className='flex-row items-center'>
+            <Text className="text-base">Bundle Items with your flight for more reward</Text>
+            <Ionicons name="chevron-forward-outline" size={20}/>
+          </TouchableOpacity>
+          <CountryExclusiveDeals 
+            Category='Food and Beverages'
+          />
+      </View>
+
+      <View className='ml-3 mt-3 mr-3'>
+          <Text className='text-xl font-bold'>Enjoy Life!</Text>
+          <TouchableOpacity className='flex-row items-center'>
+            <Text className="text-base">Bundle Items with your flight for more reward</Text>
+            <Ionicons name="chevron-forward-outline" size={20}/>
+          </TouchableOpacity>
+          <CountryExclusiveDeals 
+            Category='Health and Beauty'
+          />
+      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
