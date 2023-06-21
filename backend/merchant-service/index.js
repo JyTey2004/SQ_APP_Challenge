@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const app = express();
-const merchantRoutes = require('./routes/merchants');
+const merchantRoutes = require('./merchant-service/routes/merchants');
 
 mongoose.connect(
     process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, dbName: 'SQ_APP' }
@@ -15,14 +15,14 @@ mongoose.connect(
 app.use(
   cors({
     //replace with deployed endpoint
-    origin: "http://192.168.3.192:19000",
+    origin: "http://192.168.50.21:19000",
     credentials: true,
   })
 ); // config cors so that front-end can use
 
 app.options("*", cors({
     //replace with deployed endpoint
-    origin: "http://192.168.3.192:19000"}));
+    origin: "http://192.168.50.21:19000"}));
 
 
 // parse requests of content-type - application/json
