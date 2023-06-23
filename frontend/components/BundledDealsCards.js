@@ -5,12 +5,12 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 
 
-const BundledDealsCards = ({imgUrl, title, Offer, id}) => {
+const BundledDealsCards = ({imgUrl, title, Offer, id, category}) => {
     const navigation = useNavigation();
   return (
     <TouchableOpacity 
       className='w-52 rounded-lg p-3 bg-gray-300 mr-3 items-center'
-      onPress={() => navigation.navigate('MerchantPage', {merchantId: id})}
+      onPress={() => navigation.navigate('MerchantPage', {merchantId: id, merchantCategory: category })}
       >
         <Image
             source={{

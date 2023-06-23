@@ -15,8 +15,8 @@ const apiUrl = 'https://apigw.singaporeair.com/api/uat/v1/commercial/flightavail
 const HomeScreen = (route) => {
   const navigation = useNavigation();
 
-  const [searchPhraseDepart, setSearchPhraseDepart] = useState("");
-  const [searchPhraseDestination, setSearchPhraseDestination] = useState("");
+  const [searchPhraseDepart, setSearchPhraseDepart] = useState("SIN");
+  const [searchPhraseDestination, setSearchPhraseDestination] = useState("LAX");
 
   return (
     <SafeAreaView className="bg-indigo-800">

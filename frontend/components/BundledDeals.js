@@ -42,6 +42,7 @@ const BundledDeals = () => {
             imgUrl={merchant.mainImg}
             title={merchant.name}
             Offer={merchant.offer}
+            category={merchant.category}
         />
         // <BundledDealsCards
         //     imgUrl='https://t3.ftcdn.net/jpg/02/99/20/42/240_F_299204260_gc8tgOwSvMzaVB9d6vFfGFoRm6GbEtfl.jpg'

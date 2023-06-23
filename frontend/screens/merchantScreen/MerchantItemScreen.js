@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 const MerchantItemScreen = ({route}) => {
     const ItemData = route.params.itemData;
     const navigation = useNavigation();
-    console.log(ItemData);
+    // console.log(ItemData);
 
   return (
     <SafeAreaView className='bg-white flex-1'>
@@ -36,12 +36,12 @@ const MerchantItemScreen = ({route}) => {
                 <Text>Here are a list of relevant Airports: </Text>
                 <View className='bg-gray-200 rounded-xl p-2 mt-2'>
                     {ItemData.prices.map((item) => (
-                        <View className="w-1/2 flex-row p-1 items-center space-x-10" key={item._id}>
-                            <View className='w-1/2'>
+                        <View className="flex-1 flex-row p-1 items-center" key={item._id}>
+                            <View className='flex-1'>
                                 <Text>S${item.price}</Text>
                             </View>
                             <Ionicons name="airplane-outline" size={24} color="black"/>
-                            <View className='w-1/4 items-center'>
+                            <View className='flex-1 items-center'>
                                 <Text>{item.location}</Text>
                             </View>
                             <TouchableOpacity 

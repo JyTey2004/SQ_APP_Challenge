@@ -14,6 +14,7 @@ import MerchantItemScreen from './merchantScreen/MerchantItemScreen';
 import BuyItemScreen from './cartScreen/BuyItemScreen';
 import ItemCart from './cartScreen/ItemCart';
 import CheckoutScreen from './cartScreen/CheckoutScreen';
+import ItemRedemptionScreen from './ItemRedemption/ItemRedemptionScreen';
 
 
 export default function HomeStackScreen() {
@@ -45,7 +46,8 @@ export default function HomeStackScreen() {
         <HomeStack.Screen name='MerchantPage' component={MerchantPage} options={{headerShown: false}}/>
         <HomeStack.Screen name='MerchantItemScreen' component={MerchantItemScreen} options={{headerShown: false}}/>
         <HomeStack.Screen name='BuyItemScreen' component={BuyItemScreen} options={{headerShown: false}}/>
-        <HomeStack.Screen name='ItemCart' component={ItemCart} options={{headerShown: false}}/> 
+        <HomeStack.Screen name='ItemCart' component={ItemCart} options={{headerShown: false}}/>
+        <HomeStack.Screen name='ItemRedemptionScreen' component={ItemRedemptionScreen} options={{headerShown: false}}/>
       </HomeStack.Group>
       <HomeStack.Group screenOptions={{ presentation: 'modal' }}>
         <HomeStack.Screen name="MembershipScreen" component={MembershipScreen} options={{ headerShown: false}}/>
