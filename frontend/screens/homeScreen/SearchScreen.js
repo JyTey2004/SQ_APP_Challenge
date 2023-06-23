@@ -15,6 +15,39 @@ const SearchScreen = ({route}) => {
   const [input, setInput] = useState();
   const [data, setData] = useState();
   const { setDepartureAirportCode, setDestinationAirportCode, setDepartureCity, setDestinationCity } = useContext(SearchFlightContext);
+  const suggestedAirports= [{
+    name: 'Changi Airport',
+    iata: 'SIN',
+    city: 'Changi',
+    country: {
+      name: 'Singapore'
+    },
+  }, 
+  {
+    name: 'Narita International Airport',
+    iata: 'NRT',
+    city: 'Narita',
+    country: {
+      name: 'Japan'
+    },
+  }, 
+  {
+    name: 'London Heathrow Airport',
+    iata: 'LHR',
+    city: 'London',
+    country: {
+      name: 'United Kingdom'
+    },
+  },
+  {
+    name: 'Incheon International Airport',
+    iata: 'ICN',
+    city: 'Incheon',
+    country: {
+      name: 'Korea (South)'
+    },
+  }
+];
 
   const onPress = (code, city) => {
     if (route.params.headerTitle == 'Departure City') {
@@ -51,18 +84,18 @@ const SearchScreen = ({route}) => {
   }
 
   const getItemText = (item) => {
+    console.log(item);
     let cityCountry = item.city + ", " + item.country.name
     let airport = item.iata  + " - " + item.name;
 
     return (
-      <View>
-      <View className='flex-row px-2 '>
+      <View className='flex-row px-2'>
         <View className='ml-4'>
           <Text className='font-bold mb-1 text-lg'>{cityCountry}</Text>
           <Text>{airport}</Text>
         </View>
       </View>
-      </View>
+ 
     );
   };
 
@@ -98,7 +131,28 @@ const SearchScreen = ({route}) => {
             )}
             keyExtractor={(item) => item.iata}
           />        
-          ) : null}
+          ) : (
+          <>
+            <Text className='text-black text-m ml-4 mb-4 font-bold'>Suggested Cities</Text>
+            <FlatList
+            data={suggestedAirports}
+            showsVerticalScrollIndicator={false}
+            renderItem={(item) => (
+              <View>
+                <Pressable
+                  className='active:opacity-25'
+                  onPress={() => onPress(item.item.iata, item.item.city)}
+                >
+                  {getItemText(item.item)}
+                </Pressable>
+                <Divider style={{backgroundColor:'black', margin:16}} />
+              </View>
+            )}
+            keyExtractor={(item) => item.iata}
+            /> 
+          </>  
+          )
+        }
     </View>
   )
 }
