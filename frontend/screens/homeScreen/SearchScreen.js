@@ -91,8 +91,8 @@ const SearchScreen = ({route}) => {
     return (
       <View className='flex-row px-2'>
         <View className='ml-4'>
-          <Text className='font-bold mb-1 text-lg'>{cityCountry}</Text>
-          <Text>{airport}</Text>
+          <Text className='mb-1 text-lg'>{cityCountry}</Text>
+          <Text className='font-light text-zinc-700'>{airport}</Text>
         </View>
       </View>
  
