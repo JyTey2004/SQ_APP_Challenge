@@ -10,32 +10,35 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToBasket, selectBasketItems, selectBasketItemsWithId, removeFromBasket } from '../../features/basketSlice';
 
 const BuyItemScreen = ({route}) => {
+    const itemData = route.params.itemData;
+    const itemLocationData = route.params.itemLocationData;
+
     const [itemPrice, setNewitemPrice] = useState(null);
     const [collectionMethod, setCollectionMethod] = useState('Self-Collection');
-    const itemLocationData = route.params.itemLocationData;
-    const itemData = route.params.itemData;
-    const addItemToCart = () => {
-        const item = {
-            id: itemLocationData._id,
-            name: itemData.itemName,
-            price: itemLocationData.price,
-            image: itemData.imgUrl,
-            location: itemLocationData.location,
-            collectionMethod: collectionMethod,
-            quantity: 1,
-        }
-        dispatch(addToBasket(item));
-    }
-    useEffect(() => {
-        // Code to run on component mount
-        addItemToCart();
-        }, []);
-    const items = useSelector((state) => selectBasketItemsWithId(state, itemLocationData._id));
-    // const items = useSelector(selectBasketItems);
+    const [item, setItem] = useState({
+        id: itemLocationData._id,
+        name: itemData.itemName,
+        price: itemLocationData.price,
+        image: itemData.imgUrl,
+        location: itemLocationData.location,
+        // collectionMethod: collectionMethod,
+        quantity: 1,
+    });
+    const [krisFlyerPoints, setKrisFlyerPoints] = useState(itemLocationData.price);
+
     const dispatch = useDispatch();
     const navigation = useNavigation();
 
+    const addItemToCart = () => {
+        dispatch(addToBasket(item));
+    }
 
+    useEffect(() => {
+        // Code to run on component mount
+        addItemToCart(item);
+        }, []);
+    // const items = useSelector(selectBasketItems);
+    const items = useSelector((state) => selectBasketItemsWithId(state, item.id))
 
     const removeItemFromCart = () => {
         const id = itemLocationData._id;
@@ -50,12 +53,34 @@ const BuyItemScreen = ({route}) => {
     
     const BundledPrice = () => {
         const price = itemLocationData.price * 0.9;
+        const item = {
+            id: itemLocationData._id,
+            name: itemData.itemName,
+            price: price,
+            image: itemData.imgUrl,
+            location: itemLocationData.location,
+            // collectionMethod: collectionMethod,
+            quantity: 1,
+        }
+        setItem(item);
         setNewitemPrice(price.toFixed(2));
+        setKrisFlyerPoints(price.toFixed(2) * 1.2);
     }
 
     const ItemOnlyPrice = () => {
         const price = itemLocationData.price;
+        const item = {
+            id: itemLocationData._id,
+            name: itemData.itemName,
+            price: price,
+            image: itemData.imgUrl,
+            location: itemLocationData.location,
+            // collectionMethod: collectionMethod,
+            quantity: 1,
+        }
+        setItem(item);
         setNewitemPrice(price.toFixed(2))
+        setKrisFlyerPoints(price.toFixed(2) * 1.2);
     }
 
 
@@ -125,7 +150,7 @@ const BuyItemScreen = ({route}) => {
                 </View>
                 <View className='flex-row items-center mt-3'>
                     <Text className='flex-1 text-black text-lg font-semibold'>KrisFlyer Miles:</Text>
-                    <Text className='text-black text-lg font-base '>{(itemLocationData.price*items.length*1.2).toFixed(2)} Miles</Text>
+                    <Text className='text-black text-lg font-base '>{(krisFlyerPoints*items.length*1.2).toFixed(2)} Miles</Text>
                 </View>
                 <View className='flex-row items-center mt-3'>
                     <Text className='flex-1 text-black text-lg font-semibold'>Quantity:</Text>
@@ -152,7 +177,7 @@ const BuyItemScreen = ({route}) => {
             <View className='mt-1 ml-3 mr-3'>
                 <TouchableOpacity 
                     className='bg-indigo-800 flex-row items-center rounded-lg mt-3 justify-center p-1 mb-3'
-                    onPress={()=>navigation.navigate('ItemCart', {itemData: itemData})}  
+                    onPress={()=>navigation.navigate('ItemCart', {itemLocationData: itemLocationData, itemPrice: itemPrice})}  
                 >
                     <Text className='text-white text-lg font-semibold'>Buy Now</Text>
                 </TouchableOpacity>

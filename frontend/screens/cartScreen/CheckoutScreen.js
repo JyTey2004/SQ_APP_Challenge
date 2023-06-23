@@ -5,21 +5,16 @@ import { useSelector } from 'react-redux'
 import { selectBasketTotal } from '../../features/basketSlice'
 import { selectBasketItems } from '../../features/basketSlice'
 import { useNavigation } from '@react-navigation/native'
-import { useDispatch } from 'react-redux'
 import { StripeProvider, usePaymentSheet } from '@stripe/stripe-react-native';
 import { URL_PAYMENT_SVC } from '../../configs'
 
-const CheckoutScreen = () => {
+const CheckoutScreen = ({route}) => {
     const items = useSelector(selectBasketItems);
-    const basketTotal = useSelector(selectBasketTotal)
     const [groupItemsInBasket, setGroupItemsInBasket] = useState([]);
     const navigation = useNavigation();
-    const dispatch = useDispatch();
-    const [collectionMethods, setCollectionMethods] = useState({});
-    const [logisticsFee, setLogisticsFee] = useState(0);
-    const [feeAddedItems, setFeeAddedItems] = useState([]);
-
     const {initPaymentSheet, presentPaymentSheet, loading} = usePaymentSheet();
+    const basketTotal = route.params.basketTotal;
+    const logisticsFee = route.params.logisticsFee;
 
     useEffect(() => {
         initialisePaymentSheet();
@@ -81,25 +76,10 @@ const CheckoutScreen = () => {
         if (error) {
             Alert.alert(`Error code: ${error.code}`, error.message);
         } else {
-            Alert.alert('Success', 'The payment method was setup successfully');
+            Alert.alert('Success', 'Thank You For Your Purchase!');
+            navigation.navigate('ItemRedemptionScreen', {groupItemsInBasket: groupItemsInBasket});
         }
     }
-
-    const handleCollectionMethodChange = (itemId, method) => {
-      setCollectionMethods(prevState => ({
-        ...prevState,
-        [itemId]: method,
-      }));
-          // Update logistics fee based on the selected method
-          if (method === 'Delivery' && !feeAddedItems.includes(itemId)) {
-            setLogisticsFee(prevFee => prevFee + (groupItemsInBasket[itemId][0].price * 0.1));
-            setFeeAddedItems(prevItems => [...prevItems, itemId]);
-          } else if (method !== 'Delivery' && feeAddedItems.includes(itemId)) {
-            setLogisticsFee(prevFee => prevFee - (groupItemsInBasket[itemId][0].price * 0.1));
-            setFeeAddedItems(prevItems => prevItems.filter(item => item !== itemId));
-          }
-    };
-    // const [id, setId] = useState([]);
 
     useMemo(() => {
         const groupedItems = items.reduce((results, item) => {
@@ -121,7 +101,7 @@ const CheckoutScreen = () => {
                     <Text className='text-black font-bold text-xl mb-1'>Choose Collection Method:</Text>
                     <Divider className='mt-2 mb-3' style={{ backgroundColor: 'black', borderBottomWidth: 2 }} />
             </View>
-            <ScrollView className='bg-gray-200 rounded-lg ml-3 mr-3 mt-1 h-2/3'>
+            <ScrollView className='bg-gray-200 rounded-lg ml-3 mr-3 mt-1 flex-1'>
                 {Object.entries(groupItemsInBasket).map(([key, items]) => (
                     <View key={key} >
                         <View className='flex flex-row items-center mt-2 p-2'>
@@ -136,41 +116,6 @@ const CheckoutScreen = () => {
                             <View className='w-1/6 flex-row items-center justify-center'>
                                 <Text className='text-black font-semibold text-xl'>x{items.length}</Text>
                             </View>
-                        </View>
-                        {collectionMethods[key] && (
-                            <View className='flex flex-row items-center'>
-                            <View className='flex-1 ml-2 mr-2'>
-                                <Text className='text-black font-semibold text-lg'>{collectionMethods[key]}</Text>
-                            </View>
-                            {collectionMethods[key] === 'Delivery' && (
-                                <View className='w-1/4 flex-row items-center justify-center'>
-                                    <Text className='text-black font-semibold text-lg' numberOfLines={1}>
-                                        + ${(items[0].price * 0.1).toFixed(2)}
-                                    </Text>
-                                </View>
-                            )}
-                            {collectionMethods[key] === 'Self-Collection' && (
-                                <View className='w-1/4 flex-row items-center justify-center'>
-                                    <Text className='text-black font-semibold text-lg' numberOfLines={1}>
-                                        + ${(items[0].price * 0.0).toFixed(2)}
-                                    </Text>
-                                </View>
-                            )}
-                            </View>
-                        )}
-                        <View className='flex-1 flex-row space-x-2 p-2'>
-                            <TouchableOpacity 
-                                className='bg-indigo-800 flex-1 items-center rounded-lg p-1'
-                                onPress={() => handleCollectionMethodChange(key, 'Self-Collection')}
-                            >
-                                <Text className='text-white font-semibold text-xl'>Pick-Up: {items[0].location}</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity 
-                                className='bg-indigo-800 flex-1 items-center rounded-lg p-1'
-                                onPress={() => handleCollectionMethodChange(key, 'Delivery')}
-                            >
-                                <Text className='text-white font-semibold text-xl'>Delivery</Text>
-                            </TouchableOpacity>
                         </View>
                         <Divider className='ml-3 mr-3 mt-2' style={{ backgroundColor: 'black', borderBottomWidth: 2 }} />
                     </View>
