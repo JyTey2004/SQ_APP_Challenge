@@ -22,7 +22,15 @@ const SearchScreen = ({route}) => {
     country: {
       name: 'Singapore'
     },
-  }, 
+  },
+  {
+    name: 'Los Angeles International Airport',
+    iata: 'LAX',
+    city: 'Los Angeles',
+    country: {
+      name: 'United States'
+    },
+  },
   {
     name: 'Narita International Airport',
     iata: 'NRT',
