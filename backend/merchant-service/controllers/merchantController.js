@@ -1,4 +1,4 @@
-const Merchant = require('../models/Merchant');
+const Merchant = require('../models/merchant');
 
 // Create a new merchant
 async function createMerchant(req, res) {
