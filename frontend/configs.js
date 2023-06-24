@@ -1,9 +1,9 @@
-const URI_MERCHANT_SVC = " https://sq-app-challenge-16ca82b09b16.herokuapp.com";
+const URI_MERCHANT_SVC = "https://sq-app-challenge-16ca82b09b16.herokuapp.com";
 const PREFIX_MERCHANTS = "/merchants";
 const PREFIX_KRISMEMBERSHIP = "/krismembership";
 const PREFIX_MERCHANTMEMBERSHIP = "/merchantmembership";
 
-const URI_STRIPE = "http://192.168.43.184:4242"
+const URI_STRIPE = "http://192.168.50.21:4242"
 const PREFIX_PAYMENT_INTENT = "/create-payment-intent";
 
 export const URL_MERCHANTS_SVC = URI_MERCHANT_SVC + PREFIX_MERCHANTS;
