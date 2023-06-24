@@ -28,7 +28,7 @@ const ItemRedemptionScreen = ({route}) => {
 
   return (
     <SafeAreaView className='flex-1 items-center justify-center bg-white'>
-        <View className='w-1/2 items-center justify-center bg-gray-200 p-3 rounded-xl border-2 border-indigo-800'>
+        <View className='w-2/3 items-center justify-center bg-gray-200 p-3 rounded-xl border-2 border-indigo-800'>
             <Text className='text-indigo-800 text-3xl font-bold'>Thank You!</Text>
             <Text className='text-indigo-800 text-xl font-bold mt-2'>Please show QR code upon Pick Up:</Text>
             <ScrollView className='bg-white p-3 rounded-lg w-full mt-2'>
