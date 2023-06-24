@@ -57,4 +57,4 @@ app.post("/create-payment-intent", async (req, res) => {
     publishableKey: 'pk_test_51NL0E4CFUh3VvAw0wYvBNks6ohwVJaDmt05q4odz8sz7qg7d0UXa84FAQQ6TGpfN0vDwEDO1TdZZHW0irT1Ajioz00Mhzfm4m6'
   });
 });
-app.listen(4242, () => console.log("Node server listening on port 4242!"));
+app.listen(process.env.PORT || 4242, () => console.log("Node server listening on port 4242!"));
