@@ -6,6 +6,7 @@
     "start": "nodemon index.js"
   },
   "dependencies": {
+    "@heroku-cli/command": "^9.0.2",
     "@sendgrid/mail": "^7.7.0",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
