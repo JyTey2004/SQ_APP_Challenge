@@ -39,7 +39,7 @@ const MerchantPage = ({ route }) => {
     <SafeAreaView className='flex-1 bg-white'>
         <ScrollView 
             className='ml-3 mr-3'
-            contentContainerStyle={{ flex:1, justifyContent: 'space-between' }}
+            contentContainerStyle={{ flexGrow:1, justifyContent: 'space-between' }}
             showsVerticalScrollIndicator={false}
         >
         <Image
