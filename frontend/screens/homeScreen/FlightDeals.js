@@ -43,9 +43,9 @@ const FlightDeals = ({route}) => {
       </View>
 
       <View className='ml-3 mt-3 mr-3'>
-          <Text className='text-xl font-bold'>Explore Foodies!</Text>
+          <Text className='text-xl font-bold'>Explore Tour Packages!</Text>
           <TouchableOpacity className='flex-row items-center'>
-            <Text className="text-base">Bundle Items with your flight for more reward</Text>
+            <Text className="text-base">Bundle Tours with your flight for more reward</Text>
             <Ionicons name="chevron-forward-outline" size={20}/>
           </TouchableOpacity>
           <CountryExclusiveDeals 
@@ -56,7 +56,7 @@ const FlightDeals = ({route}) => {
       <View className='ml-3 mt-3 mr-3'>
           <Text className='text-xl font-bold'>Explore Foodies!</Text>
           <TouchableOpacity className='flex-row items-center'>
-            <Text className="text-base">Bundle Items with your flight for more reward</Text>
+            <Text className="text-base">Bundle Food with your flight for more reward</Text>
             <Ionicons name="chevron-forward-outline" size={20}/>
           </TouchableOpacity>
           <CountryExclusiveDeals 
@@ -67,7 +67,7 @@ const FlightDeals = ({route}) => {
       <View className='ml-3 mt-3 mr-3'>
           <Text className='text-xl font-bold'>Enjoy Life!</Text>
           <TouchableOpacity className='flex-row items-center'>
-            <Text className="text-base">Bundle Items with your flight for more reward</Text>
+            <Text className="text-base">Bundle Services with your flight for more reward</Text>
             <Ionicons name="chevron-forward-outline" size={20}/>
           </TouchableOpacity>
           <CountryExclusiveDeals 
