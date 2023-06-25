@@ -1,7 +1,9 @@
 {
   "expo": {
+    "owner": "jy2004",
     "name": "SQ_APP",
     "slug": "SQ_APP",
+    "description": "Rediscover Flying with FlyBuy",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
