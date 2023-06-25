@@ -49,6 +49,17 @@ const FlightDeals = ({route}) => {
             <Ionicons name="chevron-forward-outline" size={20}/>
           </TouchableOpacity>
           <CountryExclusiveDeals 
+            Category='Tours and Activities'
+          />
+      </View>
+
+      <View className='ml-3 mt-3 mr-3'>
+          <Text className='text-xl font-bold'>Explore Foodies!</Text>
+          <TouchableOpacity className='flex-row items-center'>
+            <Text className="text-base">Bundle Items with your flight for more reward</Text>
+            <Ionicons name="chevron-forward-outline" size={20}/>
+          </TouchableOpacity>
+          <CountryExclusiveDeals 
             Category='Food and Beverages'
           />
       </View>

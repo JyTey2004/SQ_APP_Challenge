@@ -16,7 +16,7 @@ const HomeScreen = (route) => {
   const navigation = useNavigation();
 
   const [searchPhraseDepart, setSearchPhraseDepart] = useState("SIN");
-  const [searchPhraseDestination, setSearchPhraseDestination] = useState("LAX");
+  const [searchPhraseDestination, setSearchPhraseDestination] = useState("NRT");
 
   return (
     <SafeAreaView className="bg-indigo-800">

@@ -1,6 +1,6 @@
 async function createMerchant(merchantData) {
   try {
-    const response = await fetch('http://localhost:8080/merchants/submit', {
+    const response = await fetch('https://sq-app-challenge-16ca82b09b16.herokuapp.com/merchants/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -517,7 +517,7 @@ const merchantData9 = {
   category : 'Health and Beauty',
   offer : 'Extra 30% Miles',
   mainImg : 'https://media.istockphoto.com/id/1415703636/photo/chinese-adult-woman-standing-in-contemplation-with-ideas-in-urban-modern-city-with-nature.jpg?s=612x612&w=0&k=20&c=lC5LchtvgbsCNuj9J05_yxOIJ-XOtv1xv9e5k0Z-j5A=',
-  locations : ['Los Angeles International Airport, NRT'],
+  locations : ['Narita International Airport, NRT'],
   items : [
     {
       name : 'Oxygen Therapy',
@@ -538,13 +538,69 @@ const merchantData9 = {
   ],
 }
 
+const merchantData10 = {
+  name : 'Tales of Tokyo: Captivating Traditions and Modern Wonders',
+  category : 'Tours and Activities',
+  offer : 'Extra 30% Miles',
+  mainImg : 'https://images.unsplash.com/photo-1604604994333-f1b0e9471186?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHRva3lvJTIwbmlnaHR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60',
+  locations : ['Narita International Airport, NRT'],
+  items : [
+    {
+      name : 'Tales of Tokyo: Captivating Traditions and Modern Wonders',
+      image : 'https://images.unsplash.com/photo-1578593050839-28efab21e431?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvJTIwbmlnaHR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=600&q=60',
+      description : 'Experience the best of Tokyo in a one-day tour package filled with cultural treasures and modern marvels. Begin in Asakusa, where the revered Senso-ji Temple and bustling Nakamise Shopping Street await. Marvel at the cityscape from the heights of Tokyo Skytree before savoring traditional Japanese cuisine for lunch. In Shibuya, witness the energetic Shibuya Crossing and immerse yourself in Harajuku\'s vibrant fashion scene. Venture to Shinjuku for panoramic views from the Tokyo Metropolitan Government Building and indulge in shopping and dining delights. Embrace the lively atmosphere of Tokyo\'s nightlife with optional activities before bidding farewell to this dynamic city.',
+      prices : [
+        { location : 'NRT', price : 149.99 }
+      ],
+    },
+  ],
+}
 
-createMerchant(merchantData1);
-createMerchant(merchantData2);
-createMerchant(merchantData3);
-createMerchant(merchantData4);
-createMerchant(merchantData5);
-createMerchant(merchantData6);
-createMerchant(merchantData7);
-createMerchant(merchantData8);
-createMerchant(merchantData9);
+const merchantData11 = {
+  name : 'Tokyo: 1-Day Mt. Fuji & Hakone Tour with Lake Ashi Cruise',
+  category : 'Tours and Activities',
+  offer : 'Extra 30% Miles',
+  mainImg : 'https://images.unsplash.com/photo-1578271887552-5ac3a72752bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bW91bnQlMjBmdWppfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60',
+  locations : ['Narita International Airport, NRT'],
+  items : [
+    {
+      name : 'Tokyo: 1-Day Mt. Fuji & Hakone Tour with Lake Ashi Cruise',
+      image : 'https://images.unsplash.com/photo-1613967193490-1d17b930c1a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG1vdW50JTIwZnVqaXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=600&q=60',
+      description : 'Discover the natural beauty of Japan on a 1-day tour to Mount Fuji from Tokyo. Visit the magnificent 5th Station for breathtaking views of the mountain, stop at Lake Kawaguchi, and enjoy a ride on the Hakone Ropeway. Return to Tokyo by bullet train.',
+      prices : [
+        { location : 'NRT', price : 249.99 }
+      ],
+    },
+  ],
+}
+
+const merchantData12 = {
+  name : 'Tokyo: Disneyland or DisneySea 1-Day Admission Ticket',
+  category : 'Tours and Activities',
+  offer : 'Extra 30% Miles',
+  mainImg : 'https://images.unsplash.com/photo-1547782126-87bb2bead14e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dG9reW8lMjBkaXNuZXlsYW5kfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60',
+  locations : ['Narita International Airport, NRT'],
+  items : [
+    {
+      name : 'Tokyo: Disneyland or DisneySea 1-Day Admission Ticket',
+      image : 'https://images.unsplash.com/photo-1547782126-87bb2bead14e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dG9reW8lMjBkaXNuZXlsYW5kfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60',
+      description : 'Experience the magic of Disneyland or DisneySea with a 1-day pass. Ride the rides, meet your favorite characters, and explore this fun-filled theme park with the whole family.',
+      prices : [
+        { location : 'NRT', price : 749.99 }
+      ],
+    },
+  ],
+}
+
+// createMerchant(merchantData1);
+// createMerchant(merchantData2);
+// createMerchant(merchantData3);
+// createMerchant(merchantData4);
+// createMerchant(merchantData5);
+// createMerchant(merchantData6);
+// createMerchant(merchantData7);
+// createMerchant(merchantData8);
+// createMerchant(merchantData9);
+// createMerchant(merchantData10);
+// createMerchant(merchantData11);
+// createMerchant(merchantData12);
