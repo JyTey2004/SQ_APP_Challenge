@@ -93,7 +93,7 @@ const CheckoutScreen = ({route}) => {
   return (
     <SafeAreaView className='bg-indigo-800'>
         <View className='items-center mt-2 mb-2'>
-            <Text className='text-white text-2xl font-bold'>Checkout</Text>
+            <Text className='text-white text-2xl font-bold'>Confirmation</Text>
         </View>
         <View className='flex-1 bg-white'>
             <Divider className='ml-3 mr-3 mb-1' style={{ backgroundColor: 'black', borderBottomWidth: 2 }} />
