@@ -98,7 +98,7 @@ const CheckoutScreen = ({route}) => {
         <View className='flex-1 bg-white'>
             <Divider className='ml-3 mr-3 mb-1' style={{ backgroundColor: 'black', borderBottomWidth: 2 }} />
             <View className='ml-3 mr-3 mt-2'>
-                    <Text className='text-black font-bold text-xl mb-1'>Choose Collection Method:</Text>
+                    <Text className='text-black font-bold text-xl mb-1'>Confirm Your Order</Text>
                     <Divider className='mt-2 mb-3' style={{ backgroundColor: 'black', borderBottomWidth: 2 }} />
             </View>
             <ScrollView className='bg-gray-200 rounded-lg ml-3 mr-3 mt-1 flex-1'>
