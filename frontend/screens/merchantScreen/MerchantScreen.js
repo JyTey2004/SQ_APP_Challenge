@@ -36,8 +36,12 @@ const MerchantPage = ({ route }) => {
   // };
 
   return (
-    <SafeAreaView className='bg-white'>
-      <View className='flex-1 ml-3 mr-3'>
+    <SafeAreaView className='flex-1 bg-white'>
+        <ScrollView 
+            className='ml-3 mr-3'
+            contentContainerStyle={{ flex:1, justifyContent: 'space-between' }}
+            showsVerticalScrollIndicator={false}
+        >
         <Image
           source={{
             uri: merchant?.mainImg,
@@ -81,7 +85,7 @@ const MerchantPage = ({ route }) => {
             Category={merchantCategory} 
             />
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
