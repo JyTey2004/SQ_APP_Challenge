@@ -66,6 +66,7 @@ const MembershipScreen = () => {
           />
           <TouchableOpacity 
             className='bg-indigo-800 rounded-lg p-2 mt-3 mb-2 items-center justify-center'
+            onPress={() => navigation.navigate('MembershipSelctionScreen', {krisMembership: krisMembership.memberships})}
           >
             <Text className='text-white text-xl font-semibold'>View Other Programs</Text>
           </TouchableOpacity>

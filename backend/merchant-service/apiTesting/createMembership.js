@@ -1,6 +1,6 @@
 async function createMembership(membershipData) {
     try {
-      const response = await fetch('http://localhost:8080/krismembership/submit', {
+      const response = await fetch('https://sq-app-challenge-16ca82b09b16.herokuapp.com/krismembership/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

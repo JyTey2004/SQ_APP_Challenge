@@ -88,6 +88,8 @@ export default function App() {
                       return { display: "none" } 
                     } else if (routeName === 'ItemRedemptionScreen') {
                       return { display: "none" } 
+                    } else if (routeName === 'MembershipSelctionScreen') {
+                      return { display: "none" } 
                     } return
                   })(route),
                 })}
