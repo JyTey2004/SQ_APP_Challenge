@@ -17,7 +17,7 @@
 7. Repeat steps 4-5
 ### Frontend
 1. cd to frontend and run `yarn install`
-2. cd to frontend/configs.js and change `URI_GATEWAY` and `STRIPE_API_URL` to
+2. cd to frontend/configs.js and change `URI_MERCHANT_SVC` and `URI_STRIPE` to
 ```
 // change "https://sq-app-challenge-16ca82b09b16.herokuapp.com" to "http://<your_ip_address>:8080"
 const URI_MERCHANT_SVC = "https://sq-app-challenge-16ca82b09b16.herokuapp.com";
