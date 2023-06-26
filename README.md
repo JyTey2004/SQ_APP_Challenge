@@ -9,8 +9,8 @@
 ## To Start the App Locally:
 ### Backend
 1. cd to backend/merchant-service
-2. Rename `.env.sample` file to `.env`.
-3. Enter the DB URL as `MONGODB_URI` in `.env` file.
+2. Create an `.env` file in the root of backend/merchant-service directory.
+3. Enter the `MONGODB_URI=mongodb+srv://sqapp:3xJfk8foVbFXeOm7@cluster0.5g0bb.mongodb.net/?retryWrites=true&w=majority` in `.env` file.
 4. Install packages using `yarn install`.
 5. Run server using `yarn start`.
 6. cd to backend/payment-service
