@@ -24,9 +24,10 @@
 1. cd to frontend and run `yarn install`
 2. cd to frontend/configs.js and change `URI_GATEWAY` and `STRIPE_API_URL` to
 ```
-// change "http://localhost:8080" to "http://<your_ip_address>:8080"
-const URI_GATEWAY = "http://<your_ip_address>:8080";
-const STRIPE_API_URL = "http://<your_ip_address>:4242";
+// change "https://sq-app-challenge-16ca82b09b16.herokuapp.com" to "http://<your_ip_address>:8080"
+const URI_MERCHANT_SVC = "https://sq-app-challenge-16ca82b09b16.herokuapp.com";
+// change "https://sq-app-payment-service-dc690ed62818.herokuapp.com" to "http://<your_ip_address>:4242"
+const URI_STRIPE = "https://sq-app-payment-service-dc690ed62818.herokuapp.com";
 ```
 3. Run `yarn start` to start expo
 4. Download Expo go on your mobile phone and scan the qr-code
