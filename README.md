@@ -1,5 +1,17 @@
 
-## To Start the App:
+## To Start Deployed App:
+1. Download Expo Go from App Store.
+2. For IOS users, you need to be invited to the project. Please contact me at WA: +65 9664 2994, and send me your email address.
+3. Wait for the invitation email from Expo.
+4. Scan the QR code from exp://exp.host/@jy2004/SQ_APP?release-channel=default
+5. Play with the App
+
+## To Start the App Locally:
+2. cd to frontend and run `yarn install`
+3. run `yarn start`
+4. Download Expo go on your mobile phone and scan the qr-code
+
+## To Start the App Development Environment:
 ### Backend
 1. cd to backend/merchant-service
 2. Rename `.env.sample` file to `.env`.
@@ -39,6 +51,10 @@ const STRIPE_API_URL = "http://<your_ip_address>:4242";
 		- Benefits:
 			- Can partnership in groups 
 
+	Universal Membership
+		- Benefits:
+			- No need to sign up for different memberships
+			- Just sign up for one membership and get access to all the benefits
 
 
 ## SOLUTION: 
