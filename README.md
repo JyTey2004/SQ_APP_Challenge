@@ -3,7 +3,7 @@
 1. Download Expo Go from App Store.
 2. For IOS users, you need to be invited to the project. Please contact me at WA: +65 9664 2994, and send me your email address.
 3. Wait for the invitation email from Expo.
-4. Scan the QR code from exp://exp.host/@jy2004/SQ_APP?release-channel=default
+4. Scan the QR code from https://expo.dev/@jy2004/SQ_APP?serviceType=classic&distribution=expo-go
 5. Play with the App
 
 ## To Start the App Locally:
