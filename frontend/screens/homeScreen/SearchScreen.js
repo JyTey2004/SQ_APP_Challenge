@@ -72,8 +72,8 @@ const SearchScreen = ({route}) => {
 
     if (text.length > 2) {
       const headers = {
-        'APC-Auth': '8d4a2a9bad',
-        'APC-Auth-Secret': 'c06c5c04c9db400'
+        'APC-Auth': '3559bbeea5',
+        'APC-Auth-Secret': '6fae3be084d456b'
       }
 
       try {
